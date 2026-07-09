@@ -37,13 +37,13 @@ import { ArrowRight, Play, Star } from "lucide-react";
         class="group inline-flex items-center gap-2.5 rounded-full bg-[#ff6a1a] px-7 py-4 text-base font-bold text-white transition-all hover:bg-[#ff8a3d] hover:shadow-[0_16px_44px_rgba(255,106,26,0.45)]"
       >
         Explore the safaris
-        <ArrowRight class="size-5 transition-transform group-hover:translate-x-1" />
+        <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
       </a>
       <a
         href="/contact"
         class="inline-flex items-center gap-2.5 rounded-full border border-[color:var(--color-line-strong)] bg-white/5 px-7 py-4 text-base font-bold text-[color:var(--color-bone)] backdrop-blur transition-colors hover:border-[#ff6a1a]"
       >
-        <Play class="size-4 fill-current" /> Plan a custom trip
+        <Play className="size-4 fill-current" /> Plan a custom trip
       </a>
     </div>
 
@@ -52,7 +52,7 @@ import { ArrowRight, Play, Star } from "lucide-react";
       {
         heroTrust.map((item) => (
           <li class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)]">
-            <Star class="size-4 fill-[#e8b04b] text-[#e8b04b]" />
+            <Star className="size-4 fill-[#e8b04b] text-[#e8b04b]" />
             {item}
           </li>
         ))

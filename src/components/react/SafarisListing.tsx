@@ -115,12 +115,10 @@ export default function SafarisListing({ tours }: { tours: Tour[] }) {
     durations: [], styles: [], destinations: [], months: [], sort: "recommended",
   }));
   const [moreOpen, setMoreOpen] = useState(false);
-  const [ready, setReady] = useState(false);
 
   // Hydrate from URL after mount (avoids SSR/client mismatch).
   useEffect(() => {
     setState(readInitial());
-    setReady(true);
   }, []);
 
   const update = useCallback((next: Partial<FilterState>) => {
@@ -235,7 +233,7 @@ export default function SafarisListing({ tours }: { tours: Tour[] }) {
         {results.length === 0 ? (
           <Empty />
         ) : (
-          <div className={cn("grid gap-6 sm:grid-cols-2 lg:grid-cols-3", !ready && "opacity-0")}>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((t) => <Card key={t.slug} tour={t} />)}
           </div>
         )}

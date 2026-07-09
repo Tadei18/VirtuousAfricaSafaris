@@ -7,7 +7,7 @@ import { destinations } from "@/data/destinations";
 import { tours } from "@/data/tours";
 import { destinationSeo } from "@/data/seo";
 import { touristDestinationJsonLd } from "@/lib/jsonld";
-import { ArrowLeft, Calendar, Maximize, Check, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, Maximize, ArrowRight } from "lucide-react";
 
 export function getStaticPaths() {
   return destinations.map((destination) => ({
@@ -31,7 +31,7 @@ const jsonLd = [touristDestinationJsonLd(d)];
     </div>
     <div class="mx-auto w-full max-w-[1400px] px-5 pb-14 pt-32 lg:px-10 lg:pb-16">
       <a href="/destinations" class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)] transition-colors hover:text-[#ff6a1a]">
-        <ArrowLeft class="size-4" /> All destinations
+        <ArrowLeft className="size-4" /> All destinations
       </a>
       <h1 class="display-1 mt-5 text-[color:var(--color-bone)]">{d.name}</h1>
       <p class="mt-3 font-display text-xl font-semibold text-[#ffb056]">{d.oneLineDraw}</p>
@@ -62,12 +62,12 @@ const jsonLd = [touristDestinationJsonLd(d)];
             <dl class="mt-4 space-y-3 text-sm">
               {d.sizeKm2 > 0 && (
                 <div class="flex items-center justify-between border-b border-[color:var(--color-line)] pb-3">
-                  <dt class="inline-flex items-center gap-2 text-[color:var(--color-fog)]"><Maximize class="size-4 text-[#ff6a1a]" /> Size</dt>
+                  <dt class="inline-flex items-center gap-2 text-[color:var(--color-fog)]"><Maximize className="size-4 text-[#ff6a1a]" /> Size</dt>
                   <dd class="font-semibold text-[color:var(--color-bone)]">{d.sizeKm2.toLocaleString()} km²</dd>
                 </div>
               )}
               <div class="flex items-start justify-between gap-4">
-                <dt class="inline-flex items-center gap-2 text-[color:var(--color-fog)]"><Calendar class="size-4 text-[#ff6a1a]" /> Best months</dt>
+                <dt class="inline-flex items-center gap-2 text-[color:var(--color-fog)]"><Calendar className="size-4 text-[#ff6a1a]" /> Best months</dt>
                 <dd class="text-right font-semibold text-[color:var(--color-bone)]">{d.bestMonths.join(", ")}</dd>
               </div>
             </dl>
@@ -110,7 +110,7 @@ const jsonLd = [touristDestinationJsonLd(d)];
         <div class="flex items-end justify-between gap-6">
           <h2 class="display-3 text-[color:var(--color-bone)]">Safaris that visit {d.name}</h2>
           <a href="/safaris" class="group hidden shrink-0 items-center gap-2 text-sm font-bold text-[#ff6a1a] sm:inline-flex">
-            All safaris <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
+            All safaris <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
         <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
