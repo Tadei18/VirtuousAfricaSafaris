@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import node from "@astrojs/node";
+import netlify from "@astrojs/netlify";
 import tailwindcss from "@tailwindcss/vite";
 
 // The public site URL. Override in production via the SITE_URL env var so
@@ -14,9 +14,9 @@ export default defineConfig({
   site,
   // `static` output prerenders every page to HTML. The three /api/* endpoints
   // opt into on-demand rendering (`prerender = false`) so their POST handlers
-  // can run — that requires an adapter, hence @astrojs/node in standalone mode.
+  // run as Netlify Functions — that requires an adapter, hence @astrojs/netlify.
   output: "static",
-  adapter: node({ mode: "standalone" }),
+  adapter: netlify(),
   integrations: [
     react(),
     sitemap({

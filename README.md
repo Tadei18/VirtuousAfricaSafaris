@@ -17,7 +17,7 @@ to make the wildlife photography carry the site.
 
 | Concern | Choice |
 | --- | --- |
-| Framework | [Astro](https://astro.build) 5 (static output + Node adapter) |
+| Framework | [Astro](https://astro.build) 5 (static output + Netlify adapter) |
 | Interactivity | React 19 islands via `@astrojs/react` |
 | Styling | Tailwind CSS v4 (`@tailwindcss/vite`) with `@theme` design tokens |
 | Animation | Framer Motion (islands) + CSS (Ken-Burns, scroll-reveal, scroll-snap) |
@@ -26,13 +26,14 @@ to make the wildlife photography carry the site.
 | Toasts | tiny custom event-based toaster (`src/lib/toast.ts`) |
 | SEO | per-route metadata, OG/Twitter, JSON-LD, `@astrojs/sitemap`, robots |
 
-### Why the Node adapter on a "static" site
+### Why an adapter on a "static" site
 
 Output is `static` — **every page is prerendered to HTML**. The only exceptions
 are the three `/api/*` endpoints, which set `export const prerender = false` so
 their `POST` handlers can run. On-demand routes require an adapter, so
-`@astrojs/node` (standalone) is included. Everything else ships as static HTML +
-minimal island JS.
+`@astrojs/netlify` is included: the prerendered pages deploy as static files and
+the `/api/*` routes run as a Netlify Function. Everything else ships as static
+HTML + minimal island JS.
 
 ---
 
@@ -43,7 +44,6 @@ npm install
 npm run dev        # local dev server (http://localhost:4321)
 npm run build      # production build → dist/
 npm run preview    # preview the production build
-npm run start      # run the built Node server (serves pages + /api/*)
 npm run check      # astro check (type-checking)
 ```
 
@@ -143,11 +143,16 @@ Each endpoint contains a detailed comment block. Summary:
 
 ## Deployment
 
-The build produces a Node server (`dist/server/entry.mjs`) plus static client
-assets in `dist/client/`. Run `npm run start`, or deploy to any Node host
-(Render, Railway, Fly, a VPS, or a serverless Node target). To go **fully
+Deployed to **Netlify** via `@astrojs/netlify`. `netlify.toml` sets the build
+command (`npm run build`), the publish directory (`dist`), and Node 22 (also
+pinned in `.nvmrc`). Prerendered pages are served as static files from `dist/`
+and the `/api/*` routes run as a Netlify Function — no manual server to run.
+Connect the repo in Netlify and it builds on push.
+
+To target a **different Node host** instead (Render, Railway, Fly, a VPS), swap
+`@astrojs/netlify` for `@astrojs/node` in `astro.config.mjs`. To go **fully
 static with no server**, drop the three `/api/*` routes (or move them to an
-external form service) and remove the Node adapter from `astro.config.mjs`.
+external form service) and remove the adapter.
 
 Set `SITE_URL` to the production domain before building so canonical URLs,
 sitemap and JSON-LD resolve correctly.
