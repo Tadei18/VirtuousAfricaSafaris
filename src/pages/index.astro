@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/home/Hero.astro";
+import IntroBand from "@/components/home/IntroBand.astro";
+import SignatureSafaris from "@/components/home/SignatureSafaris.astro";
+import QuickMatch from "@/components/home/QuickMatch.astro";
+import DestinationsStrip from "@/components/home/DestinationsStrip.astro";
+import WhyUs from "@/components/home/WhyUs.astro";
+import VisualEssay from "@/components/home/VisualEssay.astro";
+import Testimonials from "@/components/home/Testimonials.astro";
+import Conservation from "@/components/home/Conservation.astro";
+import FinalCTA from "@/components/home/FinalCTA.astro";
+import { homeSeo } from "@/data/seo";
+---
+
+<BaseLayout seo={homeSeo} transparentHeader>
+  <Hero />
+  <IntroBand />
+  <SignatureSafaris />
+  <QuickMatch />
+  <DestinationsStrip />
+  <WhyUs />
+  <VisualEssay />
+  <Testimonials />
+  <Conservation />
+  <FinalCTA />
+</BaseLayout>

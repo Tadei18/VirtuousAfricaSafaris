@@ -1,0 +1,79 @@
+---
+import { Compass, HandHeart, Route } from "lucide-react";
+
+const stats = [
+  { value: "15+", label: "Years guiding Kenya" },
+  { value: "9", label: "Parks & conservancies" },
+  { value: "94%", label: "Big Five sighting rate*" },
+  { value: "4.9★", label: "Average trip rating" },
+];
+
+const pillars = [
+  {
+    icon: Compass,
+    title: "Guides who read the bush",
+    body: "Local specialists who know which pride moved where at 4am — not a rotating roster of strangers.",
+  },
+  {
+    icon: Route,
+    title: "Routed for the wildlife",
+    body: "Conservancies with off-road tracking and vehicle limits, sequenced so you spend days in parks, not on roads.",
+  },
+  {
+    icon: HandHeart,
+    title: "Honest, local, invested",
+    body: "Kenyan-owned. A real share of every trip flows back to the communities that protect the wild.",
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[color:var(--color-paper)] text-[color:var(--color-charcoal)]">
+  <div class="mx-auto max-w-[1400px] px-5 py-20 lg:px-10 lg:py-28">
+    <div class="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div data-reveal>
+        <p class="eyebrow text-[#d24e08]">Why Virtuous Africa</p>
+        <h2 class="display-2 mt-4 max-w-xl">
+          A safari is only as good as the person reading the plains.
+        </h2>
+        <p class="mt-6 max-w-lg text-lg leading-relaxed text-[color:var(--color-charcoal-soft)]">
+          We are a small, Kenyan-owned outfit that plans private journeys the
+          way we'd plan our own — the right guide, the right park, the right week,
+          with enough time in the bush for the wildlife to find you. No convoys.
+          No filler days. No overselling.
+        </p>
+
+        <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          {
+            stats.map((s) => (
+              <div>
+                <p class="font-display text-4xl font-extrabold text-[#d24e08]">{s.value}</p>
+                <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-[color:var(--color-charcoal-soft)]">
+                  {s.label}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-4 text-xs text-[color:var(--color-charcoal-soft)]/70">
+          *Over trips of five days or more. // TODO: client to confirm figures.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4" data-reveal style="--reveal-delay:120ms">
+        {
+          pillars.map((p) => (
+            <div class="group flex gap-4 rounded-2xl border border-[color:var(--color-line-ink)] bg-white/60 p-6 transition-colors hover:border-[#ff6a1a]/40 hover:bg-white">
+              <span class="inline-flex size-12 shrink-0 items-center justify-center rounded-xl bg-[#ff6a1a]/12 text-[#d24e08]">
+                <p.icon className="size-6" />
+              </span>
+              <div>
+                <h3 class="font-display text-lg font-bold">{p.title}</h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-[color:var(--color-charcoal-soft)]">{p.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

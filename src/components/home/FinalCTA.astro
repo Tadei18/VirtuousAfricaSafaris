@@ -1,0 +1,43 @@
+---
+import { ArrowRight, MessageCircle } from "lucide-react";
+import { whatsappUrl } from "@/lib/constants";
+---
+
+<section class="bg-[#0c0e12] px-5 py-20 lg:px-10 lg:py-28">
+  <div
+    class="noise relative mx-auto max-w-[1400px] overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#ff6a1a] via-[#ff7a2c] to-[#d24e08] px-6 py-16 text-center md:py-24"
+    data-reveal
+  >
+    <div class="absolute -left-10 -top-10 size-52 rounded-full bg-white/15 blur-3xl"></div>
+    <div class="absolute -bottom-10 -right-10 size-52 rounded-full bg-black/15 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-2xl">
+      <p class="text-sm font-bold uppercase tracking-[0.2em] text-white/80">Let's begin</p>
+      <h2 class="display-2 mt-4 text-white">
+        Your Kenya is waiting. Let's plan it properly.
+      </h2>
+      <p class="mx-auto mt-5 max-w-lg text-lg text-white/90">
+        Tell us your dates and what you dream of seeing. We'll send a tailored
+        itinerary — no obligation — within 24 hours.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <a
+          href="/contact"
+          class="group inline-flex items-center gap-2.5 rounded-full bg-[#0c0e12] px-7 py-4 text-base font-bold text-white transition-transform hover:scale-105"
+        >
+          Start planning
+          <ArrowRight class="size-5 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 rounded-full border-2 border-white/70 px-7 py-4 text-base font-bold text-white transition-colors hover:bg-white hover:text-[#d24e08]"
+        >
+          <MessageCircle class="size-5" /> WhatsApp us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

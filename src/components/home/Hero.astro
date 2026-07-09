@@ -1,0 +1,69 @@
+---
+import { heroTrust } from "@/lib/constants";
+import { ArrowRight, Play, Star } from "lucide-react";
+---
+
+<section class="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden">
+  <!-- Ken-Burns background -->
+  <div class="absolute inset-0 -z-10">
+    <img
+      src="/images/visual-essay/lion-mara-dawn.webp"
+      alt="A lion in the first golden light of dawn on the Mara Triangle"
+      width="1920"
+      height="1280"
+      fetchpriority="high"
+      class="ken-burns size-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/55 to-[#0c0e12]/45"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0c0e12]/80 via-transparent to-transparent"></div>
+  </div>
+
+  <div class="mx-auto w-full max-w-[1400px] px-5 pb-16 pt-32 lg:px-10 lg:pb-24">
+    <p class="eyebrow text-[#ffb056]" data-reveal>Kenya · Est. wild</p>
+
+    <h1 class="display-1 mt-5 max-w-4xl text-[color:var(--color-bone)]" data-reveal style="--reveal-delay:80ms">
+      The wild, <span class="text-ember-gradient">honestly</span> guided.
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg leading-relaxed text-[color:var(--color-fog)] md:text-xl" data-reveal style="--reveal-delay:160ms">
+      Private, expert-led safaris across Kenya — routed through the reserves and
+      community conservancies that hold the real thing. Built around the wildlife
+      you came for, not a brochure.
+    </p>
+
+    <div class="mt-9 flex flex-wrap items-center gap-4" data-reveal style="--reveal-delay:240ms">
+      <a
+        href="/safaris"
+        class="group inline-flex items-center gap-2.5 rounded-full bg-[#ff6a1a] px-7 py-4 text-base font-bold text-white transition-all hover:bg-[#ff8a3d] hover:shadow-[0_16px_44px_rgba(255,106,26,0.45)]"
+      >
+        Explore the safaris
+        <ArrowRight class="size-5 transition-transform group-hover:translate-x-1" />
+      </a>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2.5 rounded-full border border-[color:var(--color-line-strong)] bg-white/5 px-7 py-4 text-base font-bold text-[color:var(--color-bone)] backdrop-blur transition-colors hover:border-[#ff6a1a]"
+      >
+        <Play class="size-4 fill-current" /> Plan a custom trip
+      </a>
+    </div>
+
+    <!-- Trust row -->
+    <ul class="mt-12 flex flex-wrap items-center gap-x-7 gap-y-3" data-reveal style="--reveal-delay:320ms">
+      {
+        heroTrust.map((item) => (
+          <li class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)]">
+            <Star class="size-4 fill-[#e8b04b] text-[#e8b04b]" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 lg:block">
+    <div class="flex h-11 w-6 items-start justify-center rounded-full border-2 border-white/30 p-1.5">
+      <span class="block h-2 w-1 animate-bounce rounded-full bg-white/70"></span>
+    </div>
+  </div>
+</section>

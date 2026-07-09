@@ -1,0 +1,50 @@
+---
+import StarRating from "@/components/ui/StarRating.astro";
+import { testimonials } from "@/data/testimonials";
+import { Quote, ArrowRight } from "lucide-react";
+---
+
+<section class="relative overflow-hidden bg-[#12151b] py-20 lg:py-28">
+  <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
+    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end" data-reveal>
+      <div class="max-w-2xl">
+        <p class="eyebrow text-[#ffb056]">In their words</p>
+        <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">
+          Trips people don't stop talking about.
+        </h2>
+      </div>
+      <a
+        href="/reviews"
+        class="group inline-flex shrink-0 items-center gap-2 rounded-full border border-[color:var(--color-line-strong)] px-5 py-3 text-sm font-bold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a] hover:text-[#ff6a1a]"
+      >
+        Read all reviews
+        <ArrowRight class="size-4 transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {
+        testimonials.map((t, i) => (
+          <figure
+            class="flex flex-col rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#0c0e12] p-7 transition-colors hover:border-[#ff6a1a]/30"
+            data-reveal
+            style={`--reveal-delay:${(i % 3) * 80}ms`}
+          >
+            <Quote className="size-8 text-[#ff6a1a]/40" />
+            <blockquote class="mt-4 flex-1 text-[15px] leading-relaxed text-[color:var(--color-bone)]/90">
+              "{t.quote}"
+            </blockquote>
+            <figcaption class="mt-6 border-t border-[color:var(--color-line)] pt-5">
+              <StarRating rating={t.rating} size="size-3.5" />
+              <p class="mt-2 font-display text-base font-bold text-[color:var(--color-bone)]">{t.name}</p>
+              <p class="text-sm text-[color:var(--color-fog)]">{t.country}</p>
+              <a href={`/safaris/${t.tourSlug}`} class="mt-2 inline-block text-xs font-semibold text-[#ffb056] hover:underline">
+                {t.tourTitle} →
+              </a>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

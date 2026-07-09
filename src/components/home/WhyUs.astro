@@ -1,0 +1,67 @@
+---
+import { ShieldCheck, Car, Leaf, Headset, BadgeCheck, Wallet } from "lucide-react";
+
+const reasons = [
+  {
+    icon: Car,
+    title: "Private vehicle & guide",
+    body: "Your own 4x4 game-viewer and specialist guide for the whole trip — window seat guaranteed, pace set by you.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Conservancy access",
+    body: "Off-road tracking, night drives and walking safaris on private conservancies — things national parks don't allow.",
+  },
+  {
+    icon: Wallet,
+    title: "Honest pricing",
+    body: "Clear inclusions, no hidden park-fee surprises, and every itinerary tuned to your actual budget.",
+  },
+  {
+    icon: Headset,
+    title: "24/7 on-trip support",
+    body: "A real person on the ground and on the phone from touchdown to departure. Plans flex when the wild does.",
+  },
+  {
+    icon: Leaf,
+    title: "Low-impact by design",
+    body: "Small groups, community lodges, and a share of every trip reinvested in conservation and local livelihoods.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Financially protected",
+    body: "Licensed and bonded operations, transparent deposits, and flexible rescheduling if life gets in the way.",
+  },
+];
+---
+
+<section class="relative overflow-hidden bg-[color:var(--color-paper)] text-[color:var(--color-charcoal)]">
+  <div class="mx-auto max-w-[1400px] px-5 py-20 lg:px-10 lg:py-28">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow text-[#d24e08]">Why travel with us</p>
+      <h2 class="display-2 mt-4">The difference is in the details.</h2>
+      <p class="mt-4 text-lg text-[color:var(--color-charcoal-soft)]">
+        The wildlife is Kenya's. What we bring is judgement — the calls that turn
+        a good trip into the one you talk about for years.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-px overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[color:var(--color-line-ink)] sm:grid-cols-2 lg:grid-cols-3">
+      {
+        reasons.map((r, i) => (
+          <div
+            class="group bg-[color:var(--color-paper)] p-8 transition-colors hover:bg-white"
+            data-reveal
+            style={`--reveal-delay:${(i % 3) * 80}ms`}
+          >
+            <span class="inline-flex size-12 items-center justify-center rounded-xl bg-[#ff6a1a]/12 text-[#d24e08] transition-transform group-hover:-translate-y-1">
+              <r.icon className="size-6" />
+            </span>
+            <h3 class="mt-5 font-display text-xl font-bold">{r.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[color:var(--color-charcoal-soft)]">{r.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

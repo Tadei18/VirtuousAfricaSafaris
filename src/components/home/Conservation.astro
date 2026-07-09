@@ -1,0 +1,56 @@
+---
+import { Leaf, Users, PawPrint } from "lucide-react";
+
+const impact = [
+  { icon: PawPrint, value: "5%", label: "of every trip to conservation & anti-poaching" },
+  { icon: Users, value: "40+", label: "community guides & staff employed locally" },
+  { icon: Leaf, value: "9", label: "conservancies & reserves we actively support" },
+];
+// TODO: client to confirm — impact figures are placeholders.
+---
+
+<section class="relative overflow-hidden">
+  <img
+    src="/images/visual-essay/elephants-kilimanjaro.webp"
+    alt="Elephant herd moving beneath Mount Kilimanjaro at dawn"
+    loading="lazy"
+    decoding="async"
+    class="absolute inset-0 size-full object-cover"
+  />
+  <div class="absolute inset-0 bg-[#0c0e12]/78"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-[#0c0e12] via-[#0c0e12]/70 to-transparent"></div>
+
+  <div class="relative mx-auto max-w-[1400px] px-5 py-24 lg:px-10 lg:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow text-[#ffb056]">Conservation & community</p>
+      <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">
+        Tourism that pays the wild to stay wild.
+      </h2>
+      <p class="mt-5 max-w-xl text-lg leading-relaxed text-[color:var(--color-fog)]">
+        In Kenya, wildlife survives where it earns its keep. We route trips
+        through community conservancies so your visit becomes a direct reason to
+        protect lions, elephants and rhino — and a real income for the people who
+        live alongside them.
+      </p>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        {
+          impact.map((s) => (
+            <div class="rounded-2xl border border-[color:var(--color-line-strong)] bg-white/5 p-5 backdrop-blur">
+              <s.icon className="size-6 text-[#ff6a1a]" />
+              <p class="mt-3 font-display text-3xl font-extrabold text-[color:var(--color-bone)]">{s.value}</p>
+              <p class="mt-1 text-xs font-medium text-[color:var(--color-fog)]">{s.label}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <a
+        href="/about"
+        class="mt-9 inline-flex items-center gap-2 rounded-full bg-[#ff6a1a] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#ff8a3d]"
+      >
+        How we give back
+      </a>
+    </div>
+  </div>
+</section>
