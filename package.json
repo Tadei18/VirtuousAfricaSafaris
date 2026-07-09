@@ -1,0 +1,37 @@
+{
+  "name": "virtuous-africa-safaris",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "node ./dist/server/entry.mjs",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.2.1",
+    "@astrojs/react": "^4.2.4",
+    "@astrojs/sitemap": "^3.3.0",
+    "@hookform/resolvers": "^3.10.0",
+    "astro": "^5.13.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.0",
+    "lucide-react": "^0.460.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
+    "tailwind-merge": "^2.6.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.4",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@astrojs/check": "^0.9.4",
+    "tailwindcss": "^4.1.4",
+    "typescript": "^5.7.3"
+  }
+}

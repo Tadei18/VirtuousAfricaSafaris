@@ -1,0 +1,93 @@
+---
+import "@/styles/global.css";
+import SEO from "@/components/SEO.astro";
+import Header from "@/components/layout/Header.astro";
+import Footer from "@/components/layout/Footer.astro";
+import Toaster from "@/components/react/Toaster.tsx";
+import ChatLauncher from "@/components/react/ChatLauncher.tsx";
+import { travelAgencyJsonLd } from "@/lib/jsonld";
+import { siteName } from "@/lib/constants";
+import type { PageSeo } from "@/data/seo";
+
+interface Props {
+  seo: PageSeo;
+  /** Extra JSON-LD blocks to emit for this page (tour/destination/FAQ). */
+  jsonLd?: Record<string, unknown>[];
+  /** Set true on pages with a full-bleed hero so the header floats over it. */
+  transparentHeader?: boolean;
+}
+
+const { seo, jsonLd = [], transparentHeader = false } = Astro.props;
+const graphs = [travelAgencyJsonLd(), ...jsonLd];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0c0e12" />
+
+    <SEO {...seo} />
+
+    <!-- Fonts: Bricolage Grotesque (display) + Manrope (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    />
+
+    {
+      graphs.map((g) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(g)}
+          is:inline
+        />
+      ))
+    }
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <Header transparent={transparentHeader} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <ChatLauncher client:idle />
+    <Toaster client:idle />
+
+    <!-- Scroll-reveal: adds .is-revealed as [data-reveal] elements enter view. -->
+    <script is:inline>
+      (() => {
+        const prefersReduced = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+        const els = document.querySelectorAll("[data-reveal]");
+        if (prefersReduced || !("IntersectionObserver" in window)) {
+          els.forEach((el) => el.classList.add("is-revealed"));
+          return;
+        }
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-revealed");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        els.forEach((el) => io.observe(el));
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+/* ===========================================================================
+   Virtuous Africa Safaris — design tokens
+   ---------------------------------------------------------------------------
+   Mood: premium, immersive, editorial-meets-adventure.
+   Base:  deep twilight ink (near-black, warm undertone)
+   Paper: warm bone for light/editorial sections
+   Accent: a single confident EMBER (sunset amber) — used sparingly, loud.
+   Type:  Bricolage Grotesque (characterful display) + Manrope (clean sans).
+   Deliberately distinct from the reference (cream/green/marigold + Fraunces).
+   =========================================================================== */
+
+@theme {
+  /* --- Ink / twilight base (dark sections) --- */
+  --color-ink: #0c0e12; /* page base */
+  --color-ink-2: #12151b; /* elevated surface */
+  --color-ink-3: #1a1e26; /* cards on dark */
+  --color-ink-4: #262b35; /* hover / borders on dark */
+
+  /* --- Paper (light / editorial sections) --- */
+  --color-paper: #f6f2ea; /* warm bone */
+  --color-paper-2: #ece5d7; /* deeper bone */
+  --color-paper-3: #e0d7c4;
+
+  /* --- Text --- */
+  --color-bone: #f4f1ea; /* primary text on dark */
+  --color-fog: #a6adba; /* muted text on dark */
+  --color-fog-2: #767d8b; /* faint text on dark */
+  --color-charcoal: #14171d; /* primary text on paper */
+  --color-charcoal-soft: #4a4f5a; /* muted text on paper */
+
+  /* --- Ember accent (the one loud colour) --- */
+  --color-ember: #ff6a1a; /* primary accent on dark */
+  --color-ember-2: #ff8a3d; /* lighter ember */
+  --color-ember-glow: #ffb056; /* highlights / gradients */
+  --color-ember-deep: #d24e08; /* accent text on paper (AA safe) */
+
+  /* --- Secondary warm gold (subtle, for stars / small marks) --- */
+  --color-gold: #e8b04b;
+
+  /* --- Lines --- */
+  --color-line: rgba(244, 241, 234, 0.1);
+  --color-line-strong: rgba(244, 241, 234, 0.18);
+  --color-line-ink: rgba(20, 23, 29, 0.12);
+
+  /* --- Fonts --- */
+  --font-display: "Bricolage Grotesque", "Times New Roman", serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+
+  /* --- Radii --- */
+  --radius-card: 1.25rem;
+  --radius-xl2: 1.75rem;
+
+  /* --- Shadows (layered, soft) --- */
+  --shadow-soft: 0 10px 34px rgba(0, 0, 0, 0.28);
+  --shadow-lifted: 0 24px 60px rgba(0, 0, 0, 0.42);
+  --shadow-ember: 0 14px 40px rgba(255, 106, 26, 0.28);
+  --shadow-paper: 0 12px 40px rgba(60, 44, 20, 0.1);
+
+  /* --- Easing --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" on, "cv11" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: #fff;
+}
+
+/* --- Fluid display type helpers --- */
+.display-1 {
+  font-size: clamp(2.7rem, 7vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+.display-2 {
+  font-size: clamp(2.1rem, 4.6vw, 3.9rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.display-3 {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.6rem;
+  height: 2px;
+  background: var(--color-ember);
+  border-radius: 2px;
+}
+
+/* --- Skip link --- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  background: var(--color-ember);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0 0 0.6rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* --- Focus visibility --- */
+:focus-visible {
+  outline: 2px solid var(--color-ember);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* --- Utility: ember gradient text --- */
+.text-ember-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-ember-glow),
+    var(--color-ember) 55%,
+    var(--color-ember-2)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- Grain / texture overlay hook --- */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* --- Ken Burns (hero) --- */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.18) translate3d(-1.5%, -2%, 0);
+  }
+}
+.ken-burns {
+  animation: ken-burns 22s var(--ease-out-expo) forwards alternate infinite;
+}
+
+/* --- Scroll reveal (driven by IntersectionObserver in BaseLayout) --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.7s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Marquee / horizontal helpers --- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ken-burns {
+    animation: none;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
