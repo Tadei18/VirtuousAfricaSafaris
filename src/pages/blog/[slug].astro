@@ -1,0 +1,78 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+import { siteUrl } from "@/lib/constants";
+import { ArrowLeft, Clock } from "lucide-react";
+import type { PageSeo } from "@/data/seo";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+
+const seo: PageSeo = {
+  title: post.data.title,
+  description: post.data.description,
+  canonical: `${siteUrl}/blog/${post.id}`,
+  image: post.data.heroImage,
+  ogType: "article",
+};
+---
+
+<BaseLayout seo={seo} transparentHeader>
+  <article>
+    <header class="relative isolate flex min-h-[56svh] flex-col justify-end overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <img src={post.data.heroImage} alt={post.data.heroAlt} fetchpriority="high" class="size-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/55 to-[#0c0e12]/45"></div>
+      </div>
+      <div class="mx-auto w-full max-w-3xl px-5 pb-12 pt-32 lg:pb-16">
+        <a href="/blog" class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)] transition-colors hover:text-[#ff6a1a]">
+          <ArrowLeft class="size-4" /> The journal
+        </a>
+        <span class="mt-5 inline-block rounded-full border border-[#ff6a1a]/40 bg-[#ff6a1a]/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#ffb056]">{post.data.category}</span>
+        <h1 class="display-2 mt-4 text-[color:var(--color-bone)]">{post.data.title}</h1>
+        <div class="mt-5 flex items-center gap-3 text-sm text-[color:var(--color-fog)]">
+          <span>{post.data.author}</span><span aria-hidden="true">·</span>
+          <span>{fmt(post.data.pubDate)}</span><span aria-hidden="true">·</span>
+          <span class="inline-flex items-center gap-1"><Clock class="size-3.5" /> {post.data.readMinutes} min read</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-[#0c0e12] py-14 lg:py-20">
+      <div class="prose-safari mx-auto max-w-3xl px-5">
+        <Content />
+      </div>
+      <div class="mx-auto mt-14 max-w-3xl px-5">
+        <div class="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-8 text-center">
+          <h2 class="font-display text-2xl font-bold text-[color:var(--color-bone)]">Ready to see it for yourself?</h2>
+          <a href="/contact" class="mt-5 inline-flex rounded-full bg-[#ff6a1a] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#ff8a3d]">Plan your safari</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose-safari { color: var(--color-fog); font-size: 1.075rem; line-height: 1.8; }
+  .prose-safari > * + * { margin-top: 1.25rem; }
+  .prose-safari h2 {
+    color: var(--color-bone); font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; letter-spacing: -0.02em;
+  }
+  .prose-safari h3 { color: var(--color-bone); font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-top: 2rem; }
+  .prose-safari strong { color: var(--color-bone); font-weight: 700; }
+  .prose-safari a { color: #ffb056; text-decoration: underline; }
+  .prose-safari ul { list-style: none; padding: 0; }
+  .prose-safari li { position: relative; padding-left: 1.5rem; margin-top: 0.6rem; }
+  .prose-safari li::before {
+    content: ""; position: absolute; left: 0; top: 0.7em;
+    width: 0.5rem; height: 0.5rem; border-radius: 9999px; background: #ff6a1a;
+  }
+</style>
