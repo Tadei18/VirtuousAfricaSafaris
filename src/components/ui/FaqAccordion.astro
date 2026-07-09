@@ -1,0 +1,29 @@
+---
+import { ChevronDown } from "lucide-react";
+import type { Faq } from "@/types";
+
+interface Props {
+  faqs: Faq[];
+  /** Optional name prefix so multiple accordions on a page stay independent. */
+  idPrefix?: string;
+}
+const { faqs, idPrefix = "faq" } = Astro.props;
+---
+
+<div class="divide-y divide-[color:var(--color-line)] overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b]">
+  {
+    faqs.map((f, i) => (
+      <details class="group" name={idPrefix}>
+        <summary
+          class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg font-bold text-[color:var(--color-bone)] transition-colors hover:text-[#ff6a1a] [&::-webkit-details-marker]:hidden"
+        >
+          <span>{f.question}</span>
+          <ChevronDown className="size-5 shrink-0 text-[#ff6a1a] transition-transform duration-300 group-open:rotate-180" />
+        </summary>
+        <div class="px-6 pb-6 text-[15px] leading-relaxed text-[color:var(--color-fog)]">
+          {f.answer}
+        </div>
+      </details>
+    ))
+  }
+</div>

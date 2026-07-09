@@ -1,0 +1,41 @@
+---
+import type { Month } from "@/types";
+
+interface Props {
+  scores: Record<Month, number>;
+}
+const { scores } = Astro.props;
+const MONTHS: Month[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+---
+
+<div class="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-6">
+  <div class="flex items-end gap-1.5 sm:gap-2.5" style="height: 168px">
+    {
+      MONTHS.map((m) => {
+        const score = scores[m] ?? 0;
+        const heightPct = (score / 5) * 100;
+        const isPeak = score >= 4.5;
+        const good = score >= 3 && score < 4.5;
+        return (
+          <div class="flex flex-1 flex-col items-center justify-end gap-2" style="height:140px">
+            <div
+              class:list={[
+                "w-full rounded-t-md transition-all",
+                isPeak ? "bg-gradient-to-t from-[#ff6a1a] to-[#ffb056]" : good ? "bg-[#ff6a1a]/45" : "bg-[color:var(--color-fog-2)]/30",
+              ]}
+              style={`height:${heightPct}%`}
+              role="img"
+              aria-label={`${m}: ${score} out of 5`}
+            />
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-fog)]">{m}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+  <div class="mt-4 flex items-center justify-end gap-4 text-[11px] text-[color:var(--color-fog)]">
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-gradient-to-t from-[#ff6a1a] to-[#ffb056]"></span> Peak</span>
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[#ff6a1a]/45"></span> Good</span>
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[color:var(--color-fog-2)]/30"></span> Quiet season</span>
+  </div>
+</div>

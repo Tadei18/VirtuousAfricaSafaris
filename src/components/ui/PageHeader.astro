@@ -1,0 +1,70 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  image?: string;
+  imageAlt?: string;
+  align?: "left" | "center";
+}
+const {
+  eyebrow,
+  title,
+  intro,
+  image,
+  imageAlt = "",
+  align = "left",
+} = Astro.props;
+---
+
+<section class="relative isolate overflow-hidden border-b border-[color:var(--color-line)] bg-[#0c0e12]">
+  {
+    image && (
+      <div class="absolute inset-0 -z-10">
+        <img
+          src={image}
+          alt={imageAlt}
+          fetchpriority="high"
+          class="size-full object-cover opacity-45"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/70 to-[#0c0e12]/60" />
+      </div>
+    )
+  }
+  <div
+    class:list={[
+      "mx-auto max-w-[1400px] px-5 lg:px-10",
+      image ? "pt-28 pb-16 lg:pt-36 lg:pb-20" : "pt-16 pb-12 lg:pt-20 lg:pb-16",
+      align === "center" && "text-center",
+    ]}
+  >
+    <p class:list={["eyebrow text-[#ffb056]", align === "center" && "justify-center"]} data-reveal>
+      {eyebrow}
+    </p>
+    <h1
+      class:list={[
+        "display-2 mt-4 text-[color:var(--color-bone)]",
+        align === "center" ? "mx-auto max-w-3xl" : "max-w-3xl",
+      ]}
+      data-reveal
+      style="--reveal-delay:80ms"
+    >
+      {title}
+    </h1>
+    {
+      intro && (
+        <p
+          class:list={[
+            "mt-5 text-lg leading-relaxed text-[color:var(--color-fog)]",
+            align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl",
+          ]}
+          data-reveal
+          style="--reveal-delay:140ms"
+        >
+          {intro}
+        </p>
+      )
+    }
+    <slot />
+  </div>
+</section>

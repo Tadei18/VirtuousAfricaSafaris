@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/ui/PageHeader.astro";
+import SafarisListing from "@/components/react/SafarisListing.tsx";
+import { tours } from "@/data/tours";
+import { safarisListSeo } from "@/data/seo";
+---
+
+<BaseLayout seo={safarisListSeo}>
+  <PageHeader
+    eyebrow="Safaris & tours"
+    title="Six signature routes, endlessly tailored."
+    intro="Filter by length, style, destination or season — then we tune the shortlist to your exact dates, pace and budget. Every trip is private and guide-led."
+    image="/images/tours/big-five-grand-circuit.webp"
+    imageAlt="A safari vehicle crossing the open Kenyan savanna at golden hour"
+  />
+
+  <section class="bg-[#0c0e12] pb-24">
+    <SafarisListing client:load tours={tours} />
+  </section>
+</BaseLayout>

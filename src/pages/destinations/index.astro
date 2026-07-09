@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHeader from "@/components/ui/PageHeader.astro";
+import DestinationCard from "@/components/destinations/DestinationCard.astro";
+import { destinations } from "@/data/destinations";
+import { destinationsListSeo } from "@/data/seo";
+---
+
+<BaseLayout seo={destinationsListSeo}>
+  <PageHeader
+    eyebrow="Destinations"
+    title="Nine wild corners of Kenya."
+    intro="From the predator plains of the Maasai Mara to the white sand of Diani — the parks, conservancies and coast we route our journeys through, with the best months to visit each."
+    image="/images/destinations/amboseli.webp"
+    imageAlt="Elephants crossing an Amboseli plain beneath Mount Kilimanjaro"
+  />
+
+  <section class="bg-[#0c0e12] py-16 lg:py-20">
+    <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          destinations.map((d, i) => (
+            <div data-reveal style={`--reveal-delay:${(i % 3) * 80}ms`}>
+              <DestinationCard destination={d} eager={i < 3} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

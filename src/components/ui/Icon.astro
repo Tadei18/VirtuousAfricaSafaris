@@ -1,0 +1,17 @@
+---
+// Maps an icon-name string (from tour/destination data) to a lucide icon.
+// Rendered server-side only, so the whole lucide import stays out of the
+// client bundle.
+import * as Lucide from "lucide-react";
+
+interface Props {
+  name: string;
+  class?: string;
+}
+const { name, class: cls = "size-5" } = Astro.props;
+
+const Cmp = ((Lucide as Record<string, any>)[name] ??
+  Lucide.Sparkles) as (typeof Lucide)["Sparkles"];
+---
+
+<Cmp className={cls} />
