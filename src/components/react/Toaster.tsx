@@ -12,7 +12,7 @@ const ICONS: Record<ToastKind, typeof CheckCircle2> = {
 const ACCENT: Record<ToastKind, string> = {
   success: "text-emerald-400",
   error: "text-red-400",
-  info: "text-[#ffb056]",
+  info: "text-[#cfa24a]",
 };
 
 export default function Toaster() {
@@ -50,7 +50,7 @@ export default function Toaster() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.96 }}
               transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-              className="pointer-events-auto flex w-full max-w-md items-start gap-3 rounded-2xl border border-[color:var(--color-line-strong)] bg-[#12151b]/95 px-4 py-3.5 text-sm text-[color:var(--color-bone)] shadow-[0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur"
+              className="pointer-events-auto flex w-full max-w-md items-start gap-3 rounded-2xl border border-[color:var(--color-line-strong)] bg-[#2a1509]/97 px-4 py-3.5 text-sm text-[color:var(--color-bone)] shadow-[0_24px_60px_rgba(0,0,0,0.5)] backdrop-blur"
             >
               <Icon className={`mt-0.5 size-5 shrink-0 ${ACCENT[t.kind]}`} />
               <p className="flex-1 leading-snug">{t.message}</p>

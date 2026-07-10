@@ -1,62 +1,78 @@
 @import "tailwindcss";
 
 /* ===========================================================================
-   Virtuous Africa Safaris — design tokens
+   Virtuous Africa Safaris — brand design tokens
    ---------------------------------------------------------------------------
-   Mood: premium, immersive, editorial-meets-adventure.
-   Base:  deep twilight ink (near-black, warm undertone)
-   Paper: warm bone for light/editorial sections
-   Accent: a single confident EMBER (sunset amber) — used sparingly, loud.
-   Type:  Bricolage Grotesque (characterful display) + Manrope (clean sans).
-   Deliberately distinct from the reference (cream/green/marigold + Fraunces).
+   Mood: premium, warm, editorial safari — ivory paper, rich brand brown,
+   brass-gold accents. Light-first, with deep-brown bands (footer, hero
+   overlays, CTA) for contrast.
+   Palette from the client brand: brown #3F200F, deep #2A1509, gold #CFA24A.
+   Type:  Playfair Display (engraved-serif, echoes the logo) + Manrope (sans).
    =========================================================================== */
 
 @theme {
-  /* --- Ink / twilight base (dark sections) --- */
-  --color-ink: #0c0e12; /* page base */
-  --color-ink-2: #12151b; /* elevated surface */
-  --color-ink-3: #1a1e26; /* cards on dark */
-  --color-ink-4: #262b35; /* hover / borders on dark */
+  /* --- Dark brown surfaces (footer, hero overlays, dark bands) --- */
+  --color-ink: #2a1509; /* primary-deep — darkest brown band */
+  --color-ink-2: #3a2113; /* elevated brown panel on dark */
+  --color-ink-3: #4a2d1a; /* cards on dark bands */
+  --color-ink-4: #5c3b26; /* hover / borders on dark */
 
-  /* --- Paper (light / editorial sections) --- */
-  --color-paper: #f6f2ea; /* warm bone */
-  --color-paper-2: #ece5d7; /* deeper bone */
-  --color-paper-3: #e0d7c4;
+  /* --- Brand browns --- */
+  --color-primary: #3f200f; /* brand brown — headings, primary CTAs */
+  --color-primary-deep: #2a1509; /* dark sections / overlays */
+  --color-primary-soft: #6b4a32; /* muted brown — borders, dividers */
+
+  /* --- Warm light surfaces --- */
+  --color-bg: #faf5ec; /* ivory page background */
+  --color-surface: #fffdf9; /* warm white — cards */
+  --color-paper: #faf5ec; /* light section bg (alias of bg) */
+  --color-paper-2: #efe3d0; /* sand — section tint */
+  --color-paper-3: #e0d3bc; /* deeper sand */
+  --color-sand: #efe3d0;
 
   /* --- Text --- */
-  --color-bone: #f4f1ea; /* primary text on dark */
-  --color-fog: #a6adba; /* muted text on dark */
-  --color-fog-2: #767d8b; /* faint text on dark */
-  --color-charcoal: #14171d; /* primary text on paper */
-  --color-charcoal-soft: #4a4f5a; /* muted text on paper */
+  --color-bone: #faf5ec; /* cream text on dark bands */
+  --color-fog: #d8c4a8; /* muted warm text on dark */
+  --color-fog-2: #b29a7a; /* faint text on dark */
+  --color-charcoal: #2e1b10; /* body/ink — dark text on light */
+  --color-charcoal-soft: #6b5544; /* secondary text on light */
 
-  /* --- Ember accent (the one loud colour) --- */
-  --color-ember: #ff6a1a; /* primary accent on dark */
-  --color-ember-2: #ff8a3d; /* lighter ember */
-  --color-ember-glow: #ffb056; /* highlights / gradients */
-  --color-ember-deep: #d24e08; /* accent text on paper (AA safe) */
+  /* --- Brass-gold accent (two tokens — do not collapse) --- */
+  --color-accent: #cfa24a; /* fills/accents on DARK bgs */
+  --color-accent-deep: #96690f; /* gold TEXT on LIGHT bgs (AA) */
+  --color-accent-soft: #e8cf94; /* pale gold highlight */
 
-  /* --- Secondary warm gold (subtle, for stars / small marks) --- */
-  --color-gold: #e8b04b;
+  /* --- Back-compat "ember" aliases → mapped to brand so utilities still resolve.
+         Default accent is the AA-safe gold-deep (readable on light). --- */
+  --color-ember: #96690f;
+  --color-ember-2: #5c3b26;
+  --color-ember-glow: #cfa24a;
+  --color-ember-deep: #96690f;
+
+  /* --- Supporting earth tones (use sparingly) --- */
+  --color-gold: #cfa24a;
+  --color-olive: #6b7248;
+  --color-terracotta: #9a4a1f;
 
   /* --- Lines --- */
-  --color-line: rgba(244, 241, 234, 0.1);
-  --color-line-strong: rgba(244, 241, 234, 0.18);
-  --color-line-ink: rgba(20, 23, 29, 0.12);
+  --color-line: rgba(250, 245, 236, 0.12); /* cream hairline on dark */
+  --color-line-strong: rgba(250, 245, 236, 0.22);
+  --color-line-ink: rgba(63, 32, 15, 0.14); /* brown hairline on light */
+  --color-line-ink-strong: rgba(63, 32, 15, 0.24);
 
   /* --- Fonts --- */
-  --font-display: "Bricolage Grotesque", "Times New Roman", serif;
+  --font-display: "Playfair Display", "Times New Roman", serif;
   --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
 
   /* --- Radii --- */
   --radius-card: 1.25rem;
   --radius-xl2: 1.75rem;
 
-  /* --- Shadows (layered, soft) --- */
-  --shadow-soft: 0 10px 34px rgba(0, 0, 0, 0.28);
-  --shadow-lifted: 0 24px 60px rgba(0, 0, 0, 0.42);
-  --shadow-ember: 0 14px 40px rgba(255, 106, 26, 0.28);
-  --shadow-paper: 0 12px 40px rgba(60, 44, 20, 0.1);
+  /* --- Shadows (layered, soft, warm) --- */
+  --shadow-soft: 0 10px 34px rgba(42, 21, 9, 0.12);
+  --shadow-lifted: 0 24px 60px rgba(42, 21, 9, 0.2);
+  --shadow-ember: 0 14px 40px rgba(63, 32, 15, 0.25);
+  --shadow-paper: 0 12px 40px rgba(63, 32, 15, 0.1);
 
   /* --- Easing --- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -70,8 +86,8 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-bone);
+  background: var(--color-bg);
+  color: var(--color-charcoal);
   font-family: var(--font-sans);
   font-feature-settings: "ss01" on, "cv11" on;
   -webkit-font-smoothing: antialiased;
@@ -91,8 +107,14 @@ h4,
 }
 
 ::selection {
-  background: var(--color-ember);
+  background: var(--color-primary);
   color: #fff;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-primary);
 }
 
 /* --- Fluid display type helpers --- */
@@ -126,7 +148,7 @@ h4,
   content: "";
   width: 1.6rem;
   height: 2px;
-  background: var(--color-ember);
+  background: var(--color-accent);
   border-radius: 2px;
 }
 
@@ -137,7 +159,7 @@ h4,
   top: 0;
   z-index: 200;
   padding: 0.75rem 1.25rem;
-  background: var(--color-ember);
+  background: var(--color-primary);
   color: #fff;
   font-weight: 700;
   border-radius: 0 0 0.6rem 0;
@@ -148,22 +170,28 @@ h4,
 
 /* --- Focus visibility --- */
 :focus-visible {
-  outline: 2px solid var(--color-ember);
+  outline: 2px solid var(--color-accent-deep);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* --- Utility: ember gradient text --- */
+/* --- Utility: brass-gold gradient text (used on dark hero headlines) --- */
 .text-ember-gradient {
   background: linear-gradient(
     100deg,
-    var(--color-ember-glow),
-    var(--color-ember) 55%,
-    var(--color-ember-2)
+    var(--color-accent-soft),
+    var(--color-accent) 55%,
+    #b8863a
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* --- Logo knockout for dark backgrounds (brown mark -> warm cream) --- */
+.va-logo-light {
+  filter: brightness(0) invert(1) sepia(0.16) saturate(2.2) hue-rotate(346deg)
+    brightness(1.02);
 }
 
 /* --- Grain / texture overlay hook --- */

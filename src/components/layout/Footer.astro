@@ -1,5 +1,6 @@
 ---
 import NewsletterForm from "@/components/react/NewsletterForm.tsx";
+import Logo from "@/components/ui/Logo.astro";
 import {
   siteName,
   siteTagline,
@@ -21,12 +22,12 @@ const destinationLinks = [
 ];
 ---
 
-<footer class="relative overflow-hidden border-t border-[color:var(--color-line)] bg-[#0c0e12]">
+<footer class="relative overflow-hidden bg-[#2a1509] text-[color:var(--color-fog)]">
   <!-- Newsletter band -->
   <div class="border-b border-[color:var(--color-line)]">
     <div class="mx-auto grid max-w-[1400px] gap-8 px-5 py-14 lg:grid-cols-2 lg:px-10">
       <div>
-        <p class="eyebrow text-[#ff6a1a]">Field notes</p>
+        <p class="eyebrow text-[#cfa24a]">Field notes</p>
         <h2 class="display-3 mt-3 text-[color:var(--color-bone)]">
           Dispatches from the bush.
         </h2>
@@ -49,28 +50,21 @@ const destinationLinks = [
   <div class="mx-auto max-w-[1400px] px-5 py-14 lg:px-10">
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
       <div class="lg:col-span-1">
-        <!-- Wordmark placeholder. TODO: replace with client logo. -->
-        <a href="/" class="flex items-center gap-2.5" aria-label={`${siteName} home`}>
-          <span
-            class="inline-flex size-9 items-center justify-center rounded-xl bg-[#ff6a1a] font-display text-lg font-extrabold text-white"
-            aria-hidden="true">V</span
-          >
-          <span class="font-display text-xl font-extrabold tracking-tight text-[color:var(--color-bone)]">
-            Virtuous<span class="text-[#ff6a1a]">Africa</span>
-          </span>
+        <a href="/" class="flex items-center" aria-label={`${siteName} home`}>
+          <Logo light class="h-11 w-auto" />
         </a>
-        <p class="mt-4 max-w-xs text-sm text-[color:var(--color-fog)]">
+        <p class="mt-5 max-w-xs text-sm text-[color:var(--color-fog)]">
           {siteTagline} Private, guide-led Kenyan safaris built around the
           wildlife you came for.
         </p>
         <div class="mt-5 flex gap-2">
-          <a href={social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#ff6a1a] hover:text-[#ff6a1a]">
+          <a href={social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#cfa24a] hover:text-[#cfa24a]">
             <Instagram className="size-4" />
           </a>
-          <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#ff6a1a] hover:text-[#ff6a1a]">
+          <a href={social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#cfa24a] hover:text-[#cfa24a]">
             <Facebook className="size-4" />
           </a>
-          <a href={social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#ff6a1a] hover:text-[#ff6a1a]">
+          <a href={social.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="inline-flex size-10 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-fog)] transition-colors hover:border-[#cfa24a] hover:text-[#cfa24a]">
             <Youtube className="size-4" />
           </a>
         </div>
@@ -81,7 +75,7 @@ const destinationLinks = [
         <ul class="mt-4 space-y-2.5">
           {navLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-[color:var(--color-fog)] transition-colors hover:text-[#ff6a1a]">{link.label}</a>
+              <a href={link.href} class="text-[color:var(--color-fog)] transition-colors hover:text-[#cfa24a]">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -92,7 +86,7 @@ const destinationLinks = [
         <ul class="mt-4 space-y-2.5">
           {destinationLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-[color:var(--color-fog)] transition-colors hover:text-[#ff6a1a]">{link.label}</a>
+              <a href={link.href} class="text-[color:var(--color-fog)] transition-colors hover:text-[#cfa24a]">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -102,19 +96,19 @@ const destinationLinks = [
         <h3 class="font-display text-base font-bold text-[color:var(--color-bone)]">Get in touch</h3>
         <ul class="mt-4 space-y-3 text-[color:var(--color-fog)]">
           <li class="flex items-start gap-2.5">
-            <Phone className="mt-0.5 size-4 shrink-0 text-[#ff6a1a]" />
+            <Phone className="mt-0.5 size-4 shrink-0 text-[#cfa24a]" />
             <a href={`tel:${contact.phoneTel}`} class="transition-colors hover:text-[color:var(--color-bone)]">{contact.phoneDisplay}</a>
           </li>
           <li class="flex items-start gap-2.5">
-            <Mail className="mt-0.5 size-4 shrink-0 text-[#ff6a1a]" />
+            <Mail className="mt-0.5 size-4 shrink-0 text-[#cfa24a]" />
             <a href={`mailto:${contact.email}`} class="transition-colors hover:text-[color:var(--color-bone)]">{contact.email}</a>
           </li>
           <li class="flex items-start gap-2.5">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-[#ff6a1a]" />
+            <MapPin className="mt-0.5 size-4 shrink-0 text-[#cfa24a]" />
             <span>{contact.address}</span>
           </li>
         </ul>
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-full border border-[color:var(--color-line-strong)] px-4 py-2 text-xs font-semibold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a]">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-full border border-[color:var(--color-line-strong)] px-4 py-2 text-xs font-semibold text-[color:var(--color-bone)] transition-colors hover:border-[#cfa24a] hover:text-[#cfa24a]">
           Chat on WhatsApp
         </a>
       </div>
@@ -124,7 +118,7 @@ const destinationLinks = [
     <div class="mt-12 flex flex-wrap items-center gap-3 border-t border-[color:var(--color-line)] pt-8">
       {trustBadges.map((badge) => (
         <span class="inline-flex items-center gap-1.5 rounded-full border border-[color:var(--color-line-strong)] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[color:var(--color-fog)]">
-          <span class="size-1.5 rounded-full bg-[#ff6a1a]" aria-hidden="true"></span>
+          <span class="size-1.5 rounded-full bg-[#cfa24a]" aria-hidden="true"></span>
           {badge}
         </span>
       ))}

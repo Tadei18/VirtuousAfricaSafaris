@@ -17,7 +17,7 @@ const pct = Math.max(0, Math.min(100, (rating / 5) * 100));
     aria-label={`Rated ${rating} out of 5`}
   >
     <!-- track -->
-    <div class="inline-flex text-[color:var(--color-fog-2)]/40">
+    <div class="inline-flex text-[color:var(--color-charcoal-soft)]/40">
       {
         Array.from({ length: 5 }).map(() => (
           <svg class={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -28,7 +28,7 @@ const pct = Math.max(0, Math.min(100, (rating / 5) * 100));
     </div>
     <!-- fill -->
     <div
-      class="absolute inset-0 inline-flex overflow-hidden text-[#e8b04b]"
+      class="absolute inset-0 inline-flex overflow-hidden text-[#cfa24a]"
       style={`width:${pct}%`}
     >
       {
@@ -40,8 +40,8 @@ const pct = Math.max(0, Math.min(100, (rating / 5) * 100));
       }
     </div>
   </div>
-  <span class="text-sm font-semibold text-[color:var(--color-bone)]">{rating.toFixed(1)}</span>
+  <span class="text-sm font-semibold text-inherit">{rating.toFixed(1)}</span>
   {count !== undefined && (
-    <span class="text-sm text-[color:var(--color-fog)]">({count})</span>
+    <span class="text-sm text-inherit opacity-70">({count})</span>
   )}
 </div>

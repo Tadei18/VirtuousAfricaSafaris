@@ -44,7 +44,7 @@ export default function Gallery({ images }: { images: Shot[] }) {
             key={img.src + i}
             type="button"
             onClick={() => setIndex(i)}
-            className={`group relative overflow-hidden rounded-2xl border border-[color:var(--color-line)] ${
+            className={`group relative overflow-hidden rounded-2xl border border-[color:var(--color-line-ink)] ${
               i === 0 ? "col-span-2 aspect-[16/10] sm:col-span-2 sm:row-span-2 sm:aspect-auto" : "aspect-square"
             }`}
             aria-label={`View image: ${img.alt}`}
@@ -56,7 +56,7 @@ export default function Gallery({ images }: { images: Shot[] }) {
               decoding="async"
               className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <span className="absolute inset-0 flex items-center justify-center bg-[#0c0e12]/0 opacity-0 transition-all group-hover:bg-[#0c0e12]/30 group-hover:opacity-100">
+            <span className="absolute inset-0 flex items-center justify-center bg-[#2a1509]/0 opacity-0 transition-all group-hover:bg-[#2a1509]/30 group-hover:opacity-100">
               <Expand className="size-6 text-white" />
             </span>
           </button>
@@ -69,7 +69,7 @@ export default function Gallery({ images }: { images: Shot[] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[140] flex items-center justify-center bg-[#0c0e12]/95 p-4 backdrop-blur"
+            className="fixed inset-0 z-[140] flex items-center justify-center bg-[#2a1509]/95 p-4 backdrop-blur"
             onClick={close}
             role="dialog"
             aria-modal="true"

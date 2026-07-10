@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { navLinks, whatsappUrl } from "@/lib/constants";
+import logo from "@/assets/virtuous-africa-logo.png";
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function MobileNav() {
         onClick={() => setOpen(true)}
         aria-label="Open menu"
         aria-expanded={open}
-        className="inline-flex size-11 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a]"
+        className="inline-flex size-11 items-center justify-center rounded-full border border-[color:var(--color-line-strong)] text-[color:var(--color-bone)] transition-colors hover:border-[#cfa24a]"
       >
         <Menu className="size-5" />
       </button>
@@ -38,7 +39,7 @@ export default function MobileNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[130] bg-[#0c0e12]/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[130] bg-[#2a1509]/80 backdrop-blur-sm"
             onClick={() => setOpen(false)}
           >
             <motion.nav
@@ -46,14 +47,16 @@ export default function MobileNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col bg-[#12151b] p-6 shadow-[-20px_0_60px_rgba(0,0,0,0.5)]"
+              className="absolute right-0 top-0 flex h-full w-[85%] max-w-sm flex-col border-l border-[color:var(--color-line)] bg-[#2a1509] p-6 shadow-[-20px_0_60px_rgba(0,0,0,0.5)]"
               onClick={(e) => e.stopPropagation()}
               aria-label="Mobile"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-lg font-extrabold tracking-tight text-[color:var(--color-bone)]">
-                  Virtuous<span className="text-[#ff6a1a]">Africa</span>
-                </span>
+                <img
+                  src={logo.src}
+                  alt="Virtuous Africa Safaris"
+                  className="va-logo-light h-8 w-auto"
+                />
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
@@ -74,7 +77,7 @@ export default function MobileNav() {
                   >
                     <a
                       href={link.href}
-                      className="flex items-center justify-between border-b border-[color:var(--color-line)] py-4 font-display text-2xl font-bold text-[color:var(--color-bone)] transition-colors hover:text-[#ff6a1a]"
+                      className="flex items-center justify-between border-b border-[color:var(--color-line)] py-4 font-display text-2xl font-bold text-[color:var(--color-bone)] transition-colors hover:text-[#cfa24a]"
                     >
                       {link.label}
                       <ArrowUpRight className="size-5 text-[color:var(--color-fog-2)]" />
@@ -86,7 +89,7 @@ export default function MobileNav() {
               <div className="mt-auto flex flex-col gap-3 pt-8">
                 <a
                   href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-[#ff6a1a] px-6 py-3.5 font-bold text-white transition-colors hover:bg-[#ff8a3d]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#cfa24a] px-6 py-3.5 font-bold text-[#2a1509] transition-colors hover:bg-[#e8cf94]"
                 >
                   Plan your safari
                 </a>

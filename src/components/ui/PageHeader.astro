@@ -15,9 +15,20 @@ const {
   imageAlt = "",
   align = "left",
 } = Astro.props;
+
+// Image headers render as a dark-brown band (photo + overlay + cream text);
+// plain headers render light (ivory + brown/charcoal text).
+const dark = !!image;
 ---
 
-<section class="relative isolate overflow-hidden border-b border-[color:var(--color-line)] bg-[#0c0e12]">
+<section
+  class:list={[
+    "relative isolate overflow-hidden border-b",
+    dark
+      ? "border-[color:var(--color-line)] bg-[#2a1509]"
+      : "border-[color:var(--color-line-ink)] bg-[#faf5ec]",
+  ]}
+>
   {
     image && (
       <div class="absolute inset-0 -z-10">
@@ -25,9 +36,9 @@ const {
           src={image}
           alt={imageAlt}
           fetchpriority="high"
-          class="size-full object-cover opacity-45"
+          class="size-full object-cover opacity-50"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/70 to-[#0c0e12]/60" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#2a1509] via-[#2a1509]/70 to-[#2a1509]/55" />
       </div>
     )
   }
@@ -38,12 +49,20 @@ const {
       align === "center" && "text-center",
     ]}
   >
-    <p class:list={["eyebrow text-[#ffb056]", align === "center" && "justify-center"]} data-reveal>
+    <p
+      class:list={[
+        "eyebrow",
+        dark ? "text-[#cfa24a]" : "text-[#96690f]",
+        align === "center" && "justify-center",
+      ]}
+      data-reveal
+    >
       {eyebrow}
     </p>
     <h1
       class:list={[
-        "display-2 mt-4 text-[color:var(--color-bone)]",
+        "display-2 mt-4",
+        dark ? "text-[color:var(--color-bone)]" : "text-[color:var(--color-charcoal)]",
         align === "center" ? "mx-auto max-w-3xl" : "max-w-3xl",
       ]}
       data-reveal
@@ -55,7 +74,8 @@ const {
       intro && (
         <p
           class:list={[
-            "mt-5 text-lg leading-relaxed text-[color:var(--color-fog)]",
+            "mt-5 text-lg leading-relaxed",
+            dark ? "text-[color:var(--color-fog)]" : "text-[color:var(--color-charcoal-soft)]",
             align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl",
           ]}
           data-reveal

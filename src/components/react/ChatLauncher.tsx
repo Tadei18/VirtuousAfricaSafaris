@@ -39,11 +39,11 @@ export default function ChatLauncher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.96 }}
             transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 z-[110] w-[calc(100vw-2rem)] max-w-sm overflow-hidden rounded-3xl border border-[color:var(--color-line-strong)] bg-[#12151b] shadow-[0_30px_80px_rgba(0,0,0,0.55)] sm:right-6"
+            className="fixed bottom-24 right-4 z-[110] w-[calc(100vw-2rem)] max-w-sm overflow-hidden rounded-3xl border border-[color:var(--color-line-ink-strong)] bg-[#fffdf9] shadow-[0_30px_80px_rgba(0,0,0,0.55)] sm:right-6"
             role="dialog"
             aria-label="Chat with a safari planner"
           >
-            <div className="flex items-center justify-between bg-gradient-to-r from-[#ff6a1a] to-[#ff8a3d] px-5 py-4 text-white">
+            <div className="flex items-center justify-between bg-gradient-to-r from-[#3f200f] to-[#5c3b26] px-5 py-4 text-white">
               <div>
                 <p className="font-display text-lg font-bold leading-none">
                   Talk to a planner
@@ -63,7 +63,7 @@ export default function ChatLauncher() {
             </div>
 
             <form onSubmit={send} className="p-5">
-              <label htmlFor="chat-msg" className="text-sm text-[color:var(--color-fog)]">
+              <label htmlFor="chat-msg" className="text-sm text-[color:var(--color-charcoal-soft)]">
                 What are you dreaming up? Dates, group, what you'd love to see.
               </label>
               <textarea
@@ -71,29 +71,29 @@ export default function ChatLauncher() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={3}
-                className="mt-2 w-full resize-none rounded-xl border border-[color:var(--color-line-strong)] bg-[#0c0e12] px-3.5 py-3 text-sm text-[color:var(--color-bone)] placeholder:text-[color:var(--color-fog-2)] focus:border-[#ff6a1a] focus:outline-none"
+                className="mt-2 w-full resize-none rounded-xl border border-[color:var(--color-line-ink-strong)] bg-[#faf5ec] px-3.5 py-3 text-sm text-[color:var(--color-charcoal)] placeholder:text-[color:var(--color-charcoal-soft)] focus:border-[#3f200f] focus:outline-none"
                 placeholder="Two of us, first week of August, hoping for the migration…"
               />
               <button
                 type="submit"
                 disabled={pending}
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#ff6a1a] px-5 py-3 text-sm font-bold text-white transition-all hover:bg-[#ff8a3d] disabled:opacity-60"
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#3f200f] px-5 py-3 text-sm font-bold text-white transition-all hover:bg-[#5c3b26] disabled:opacity-60"
               >
                 {pending ? "Sending…" : "Send message"} <Send className="size-4" />
               </button>
 
-              <div className="mt-4 flex items-center gap-3 border-t border-[color:var(--color-line)] pt-4">
+              <div className="mt-4 flex items-center gap-3 border-t border-[color:var(--color-line-ink)] pt-4">
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a] hover:text-[#ffb056]"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-ink-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--color-charcoal)] transition-colors hover:border-[#3f200f] hover:text-[#96690f]"
                 >
                   <MessageCircle className="size-4" /> WhatsApp
                 </a>
                 <a
                   href={`tel:${contact.phoneTel}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a] hover:text-[#ffb056]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--color-line-ink-strong)] px-4 py-2.5 text-sm font-semibold text-[color:var(--color-charcoal)] transition-colors hover:border-[#3f200f] hover:text-[#96690f]"
                 >
                   <Phone className="size-4" /> Call
                 </a>
@@ -108,7 +108,7 @@ export default function ChatLauncher() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close chat" : "Open chat with a safari planner"}
-        className="group fixed bottom-5 right-4 z-[110] inline-flex items-center gap-2.5 rounded-full bg-[#ff6a1a] px-5 py-4 font-bold text-white shadow-[0_14px_40px_rgba(255,106,26,0.4)] transition-all hover:scale-105 hover:bg-[#ff8a3d] sm:right-6"
+        className="group fixed bottom-5 right-4 z-[110] inline-flex items-center gap-2.5 rounded-full bg-[#3f200f] px-5 py-4 font-bold text-white shadow-[0_14px_40px_rgba(63,32,15,0.45)] transition-all hover:scale-105 hover:bg-[#5c3b26] sm:right-6"
       >
         <span className="relative flex size-6 items-center justify-center">
           <AnimatePresence mode="wait" initial={false}>

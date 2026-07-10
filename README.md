@@ -7,9 +7,8 @@ to make the wildlife photography carry the site.
 
 > ⚠️ **Placeholder content.** All contact details, phone numbers, social links,
 > addresses, trust badges and impact figures are clearly-marked placeholders
-> (`// TODO: client to confirm`). Do not treat them as real. The wordmark in the
-> header/footer is a **text placeholder** — replace with the client logo (search
-> the codebase for `TODO: replace with client logo`).
+> (`// TODO: client to confirm`). Do not treat them as real. The client logo is
+> in place (header/footer/mobile nav); the contact details are still placeholders.
 
 ---
 
@@ -100,18 +99,28 @@ public/images/         # photographic assets (destinations, tours, visual-essay)
 
 ## Design system
 
-Deliberately distinct from any warm-cream / green / marigold safari template.
+Warm, editorial safari brand — light-first (ivory paper) with deep-brown bands
+for cinematic contrast.
 
-- **Palette:** deep twilight **ink** base (`#0c0e12`), warm **bone/paper** for
-  editorial light sections, and one loud **ember** accent (`#ff6a1a`) used
-  sparingly. AA-contrast checked.
-- **Type:** **Bricolage Grotesque** (characterful display) + **Manrope** (clean
-  body), loaded from Google Fonts. Fluid `clamp()` display scale.
+- **Palette:** ivory page background (`#FAF5EC`), warm-white cards (`#FFFDF9`),
+  rich brand **brown** (`#3F200F`, deep `#2A1509`), and a **brass-gold** accent
+  in two tokens — bright `#CFA24A` for fills/accents on dark, and AA-safe
+  `#96690F` for gold text on light. Warm near-black body text (`#2E1B10`).
+  Dark bands (header, footer, hero overlays, CTA, quick-match, testimonials,
+  lightbox) use the deep brown with cream text. AA-contrast checked.
+- **Type:** **Playfair Display** (engraved-serif display, echoes the logo) +
+  **Manrope** (clean body), from Google Fonts. Fluid `clamp()` display scale.
+- **Logo:** the client wordmark (`src/assets/virtuous-africa-logo.png`, a
+  trimmed transparent brown silhouette derived from `public/brand/…`) rendered
+  via `astro:assets` in a shared `Logo.astro`. On dark surfaces it's knocked out
+  to warm cream via the `.va-logo-light` CSS filter.
 - **Motion:** Ken-Burns hero, IntersectionObserver scroll-reveal, horizontal
   scroll-snap strips, hover lifts. All gated behind `prefers-reduced-motion`.
 
 Tokens live in `src/styles/global.css` under `@theme` (colours, fonts, radii,
 shadows, easing) so the whole site stays consistent — edit there to re-skin.
+Component styles reference the brand hexes directly; the legacy `--color-ember*`
+token names are kept as brand-mapped aliases for back-compat.
 
 ---
 
@@ -171,7 +180,7 @@ Per-route `<title>`/description/canonical, Open Graph + Twitter cards, JSON-LD
 
 ## Before launch — checklist
 
-- [ ] Replace wordmark with the real logo (`TODO: replace with client logo`)
+- [x] Client logo applied (header, footer, mobile nav, favicon, OG)
 - [ ] Confirm all contact/social/address values (`TODO: client to confirm`)
 - [ ] Confirm trust badges / memberships and impact figures
 - [ ] Export a raster `og-default.png` (1200×630) to replace the SVG placeholder

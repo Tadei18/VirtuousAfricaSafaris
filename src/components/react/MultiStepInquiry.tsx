@@ -43,8 +43,8 @@ const STEP_FIELDS: Record<number, (keyof InquiryFormValues)[]> = {
 const STEP_LABELS = ["Dates", "Interests", "Style & budget", "Your details"];
 
 const inputCls =
-  "w-full rounded-xl border border-[color:var(--color-line-strong)] bg-[#0c0e12] px-3.5 py-3 text-sm text-[color:var(--color-bone)] placeholder:text-[color:var(--color-fog-2)] focus:border-[#ff6a1a] focus:outline-none";
-const labelCls = "text-sm font-semibold text-[color:var(--color-bone)]";
+  "w-full rounded-xl border border-[color:var(--color-line-ink-strong)] bg-[#faf5ec] px-3.5 py-3 text-sm text-[color:var(--color-charcoal)] placeholder:text-[color:var(--color-charcoal-soft)] focus:border-[#3f200f] focus:outline-none";
+const labelCls = "text-sm font-semibold text-[color:var(--color-charcoal)]";
 const errCls = "mt-1 text-xs text-red-400";
 
 export default function MultiStepInquiry() {
@@ -94,14 +94,14 @@ export default function MultiStepInquiry() {
 
   if (submitted) {
     return (
-      <div className="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-8 text-center sm:p-12">
-        <span className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-[#ff6a1a] text-white">
+      <div className="rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-8 text-center sm:p-12">
+        <span className="mx-auto inline-flex size-16 items-center justify-center rounded-full bg-[#3f200f] text-white">
           <Check className="size-8" />
         </span>
-        <h2 className="mt-6 font-display text-2xl font-extrabold text-[color:var(--color-bone)]">
+        <h2 className="mt-6 font-display text-2xl font-extrabold text-[color:var(--color-charcoal)]">
           Your safari brief is in.
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-[color:var(--color-fog)]">
+        <p className="mx-auto mt-3 max-w-md text-[color:var(--color-charcoal-soft)]">
           A planner is already reading it. You'll have a tailored itinerary and quote
           in your inbox within 24 hours — often much sooner.
         </p>
@@ -109,7 +109,7 @@ export default function MultiStepInquiry() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-line-strong)] px-6 py-3 text-sm font-bold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a]"
+          className="mt-6 inline-flex items-center gap-2 rounded-full border border-[color:var(--color-line-ink-strong)] px-6 py-3 text-sm font-bold text-[color:var(--color-charcoal)] transition-colors hover:border-[#3f200f]"
         >
           Prefer to chat now? WhatsApp us
         </a>
@@ -118,13 +118,13 @@ export default function MultiStepInquiry() {
   }
 
   return (
-    <div className="rounded-[1.75rem] border border-[color:var(--color-line)] bg-[#12151b] p-6 sm:p-8">
+    <div className="rounded-[1.75rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6 sm:p-8">
       {/* Progress */}
       <div className="flex items-center gap-2">
         {STEP_LABELS.map((label, i) => (
           <div key={label} className="flex flex-1 flex-col gap-1.5">
-            <div className={cn("h-1.5 rounded-full transition-colors", i <= step ? "bg-[#ff6a1a]" : "bg-[color:var(--color-line-strong)]")} />
-            <span className={cn("hidden text-[11px] font-semibold sm:block", i === step ? "text-[#ffb056]" : "text-[color:var(--color-fog-2)]")}>{label}</span>
+            <div className={cn("h-1.5 rounded-full transition-colors", i <= step ? "bg-[#3f200f]" : "bg-[color:var(--color-line-ink-strong)]")} />
+            <span className={cn("hidden text-[11px] font-semibold sm:block", i === step ? "text-[#96690f]" : "text-[color:var(--color-charcoal-soft)]")}>{label}</span>
           </div>
         ))}
       </div>
@@ -150,7 +150,7 @@ export default function MultiStepInquiry() {
                     {errors.primaryMonth && <p className={errCls}>{errors.primaryMonth.message}</p>}
                   </div>
                   <div>
-                    <label htmlFor="alternateMonth" className={labelCls}>Backup month <span className="font-normal text-[color:var(--color-fog-2)]">(optional)</span></label>
+                    <label htmlFor="alternateMonth" className={labelCls}>Backup month <span className="font-normal text-[color:var(--color-charcoal-soft)]">(optional)</span></label>
                     <select id="alternateMonth" {...register("alternateMonth")} className={cn(inputCls, "mt-1.5")} defaultValue="">
                       <option value="">No preference</option>
                       {MONTHS.map((m) => <option key={m} value={m}>{m}</option>)}
@@ -166,7 +166,7 @@ export default function MultiStepInquiry() {
                         {DURATIONS.map((d) => (
                           <button key={d.value} type="button" onClick={() => field.onChange(d.value)}
                             className={cn("rounded-xl border px-3 py-2.5 text-sm font-semibold transition-colors",
-                              field.value === d.value ? "border-[#ff6a1a] bg-[#ff6a1a] text-white" : "border-[color:var(--color-line-strong)] text-[color:var(--color-bone)] hover:border-[#ff6a1a]/50")}>
+                              field.value === d.value ? "border-[#3f200f] bg-[#3f200f] text-white" : "border-[color:var(--color-line-ink-strong)] text-[color:var(--color-charcoal)] hover:border-[#3f200f]/50")}>
                             {d.label}
                           </button>
                         ))}
@@ -203,7 +203,7 @@ export default function MultiStepInquiry() {
                             onClick={() => field.onChange(active ? field.value.filter((v) => v !== it) : [...(field.value ?? []), it])}
                             aria-pressed={active}
                             className={cn("inline-flex items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
-                              active ? "border-[#ff6a1a] bg-[#ff6a1a] text-white" : "border-[color:var(--color-line-strong)] text-[color:var(--color-bone)] hover:border-[#ff6a1a]/50")}>
+                              active ? "border-[#3f200f] bg-[#3f200f] text-white" : "border-[color:var(--color-line-ink-strong)] text-[color:var(--color-charcoal)] hover:border-[#3f200f]/50")}>
                             {active && <Check className="size-3.5" />} {it}
                           </button>
                         );
@@ -226,9 +226,9 @@ export default function MultiStepInquiry() {
                         {STYLES.map((s) => (
                           <button key={s.value} type="button" onClick={() => field.onChange(s.value)}
                             className={cn("rounded-xl border p-4 text-left transition-colors",
-                              field.value === s.value ? "border-[#ff6a1a] bg-[#ff6a1a]/10" : "border-[color:var(--color-line-strong)] hover:border-[#ff6a1a]/50")}>
-                            <p className="font-display text-base font-bold text-[color:var(--color-bone)]">{s.label}</p>
-                            <p className="text-xs text-[color:var(--color-fog)]">{s.note}</p>
+                              field.value === s.value ? "border-[#3f200f] bg-[#3f200f]/10" : "border-[color:var(--color-line-ink-strong)] hover:border-[#3f200f]/50")}>
+                            <p className="font-display text-base font-bold text-[color:var(--color-charcoal)]">{s.label}</p>
+                            <p className="text-xs text-[color:var(--color-charcoal-soft)]">{s.note}</p>
                           </button>
                         ))}
                       </div>
@@ -238,12 +238,12 @@ export default function MultiStepInquiry() {
                 </div>
                 <div>
                   <label htmlFor="budgetUsd" className={labelCls}>
-                    Rough budget per person: <span className="text-[#ffb056]">${Number(budget).toLocaleString()}</span>
+                    Rough budget per person: <span className="text-[#96690f]">${Number(budget).toLocaleString()}</span>
                   </label>
                   <input id="budgetUsd" type="range" min={500} max={15000} step={100}
                     {...register("budgetUsd", { valueAsNumber: true })}
-                    className="mt-3 w-full accent-[#ff6a1a]" />
-                  <div className="mt-1 flex justify-between text-xs text-[color:var(--color-fog-2)]">
+                    className="mt-3 w-full accent-[#3f200f]" />
+                  <div className="mt-1 flex justify-between text-xs text-[color:var(--color-charcoal-soft)]">
                     <span>$500</span><span>$15,000+</span>
                   </div>
                 </div>
@@ -274,12 +274,12 @@ export default function MultiStepInquiry() {
                     {errors.country && <p className={errCls}>{errors.country.message}</p>}
                   </div>
                   <div>
-                    <label htmlFor="phone" className={labelCls}>Phone / WhatsApp <span className="font-normal text-[color:var(--color-fog-2)]">(optional)</span></label>
+                    <label htmlFor="phone" className={labelCls}>Phone / WhatsApp <span className="font-normal text-[color:var(--color-charcoal-soft)]">(optional)</span></label>
                     <input id="phone" {...register("phone")} className={cn(inputCls, "mt-1.5")} placeholder="+1 555 000 0000" />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="notes" className={labelCls}>Anything else? <span className="font-normal text-[color:var(--color-fog-2)]">(optional)</span></label>
+                  <label htmlFor="notes" className={labelCls}>Anything else? <span className="font-normal text-[color:var(--color-charcoal-soft)]">(optional)</span></label>
                   <textarea id="notes" rows={3} {...register("notes")} className={cn(inputCls, "mt-1.5 resize-none")} placeholder="Bucket-list species, mobility needs, celebrating something…" />
                 </div>
               </div>
@@ -291,18 +291,18 @@ export default function MultiStepInquiry() {
         <div className="mt-8 flex items-center justify-between gap-3">
           <button type="button" onClick={() => setStep((s) => Math.max(s - 1, 0))} disabled={step === 0}
             className={cn("inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors",
-              step === 0 ? "invisible" : "text-[color:var(--color-fog)] hover:text-[color:var(--color-bone)]")}>
+              step === 0 ? "invisible" : "text-[color:var(--color-charcoal-soft)] hover:text-[color:var(--color-charcoal)]")}>
             <ArrowLeft className="size-4" /> Back
           </button>
 
           {step < total - 1 ? (
             <button type="button" onClick={nextStep}
-              className="inline-flex items-center gap-2 rounded-full bg-[#ff6a1a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#ff8a3d]">
+              className="inline-flex items-center gap-2 rounded-full bg-[#3f200f] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#5c3b26]">
               Continue <ArrowRight className="size-4" />
             </button>
           ) : (
             <button type="submit" disabled={pending}
-              className="inline-flex items-center gap-2 rounded-full bg-[#ff6a1a] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#ff8a3d] disabled:opacity-60">
+              className="inline-flex items-center gap-2 rounded-full bg-[#3f200f] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#5c3b26] disabled:opacity-60">
               {pending ? "Sending…" : "Send my brief"} <Check className="size-4" />
             </button>
           )}

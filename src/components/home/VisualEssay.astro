@@ -33,14 +33,14 @@ const tiles = [
 ];
 ---
 
-<section class="bg-[#0c0e12] py-20 lg:py-28">
+<section class="bg-[#faf5ec] py-20 lg:py-28">
   <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
     <header class="max-w-2xl" data-reveal>
-      <p class="eyebrow text-[#ffb056]">The field</p>
-      <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">
+      <p class="eyebrow text-[#96690f]">The field</p>
+      <h2 class="display-2 mt-4 text-[color:var(--color-charcoal)]">
         Moments we tend to deliver.
       </h2>
-      <p class="mt-4 text-lg text-[color:var(--color-fog)]">
+      <p class="mt-4 text-lg text-[color:var(--color-charcoal-soft)]">
         Not stock promises — the kind of light and proximity our guides put you
         in, week after week.
       </p>
@@ -54,7 +54,7 @@ const tiles = [
         tiles.map((tile, i) => (
           <figure
             class:list={[
-              "group relative overflow-hidden rounded-2xl border border-[color:var(--color-line)] bg-[#12151b]",
+              "group relative overflow-hidden rounded-2xl border border-[color:var(--color-line-ink)] bg-[#fffdf9]",
               tile.className,
             ]}
           >
@@ -65,7 +65,7 @@ const tiles = [
               decoding="async"
               class="size-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12]/90 via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#2a1509]/90 via-transparent to-transparent"></div>
             <figcaption class="absolute inset-x-0 bottom-0 p-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               {tile.caption}
             </figcaption>

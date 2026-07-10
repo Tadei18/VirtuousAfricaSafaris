@@ -2,19 +2,19 @@
   <!-- TODO: replace with a photographic 1200x630 PNG before launch (social scrapers prefer raster). -->
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#12151b"/>
-      <stop offset="1" stop-color="#0c0e12"/>
+      <stop offset="0" stop-color="#3f200f"/>
+      <stop offset="1" stop-color="#2a1509"/>
     </linearGradient>
-    <linearGradient id="ember" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ffb056"/>
-      <stop offset="0.55" stop-color="#ff6a1a"/>
-      <stop offset="1" stop-color="#ff8a3d"/>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e8cf94"/>
+      <stop offset="0.55" stop-color="#cfa24a"/>
+      <stop offset="1" stop-color="#b8863a"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="120" r="70" fill="url(#ember)" opacity="0.9"/>
-  <text x="90" y="250" font-family="Georgia, serif" font-size="34" letter-spacing="8" fill="#ff6a1a">VIRTUOUS AFRICA SAFARIS</text>
-  <text x="86" y="360" font-family="Georgia, serif" font-weight="700" font-size="96" fill="#f4f1ea">Wild Kenya,</text>
-  <text x="86" y="470" font-family="Georgia, serif" font-weight="700" font-size="96" fill="url(#ember)">honestly guided.</text>
-  <text x="90" y="560" font-family="Arial, sans-serif" font-size="28" fill="#a6adba">Private, guide-led safaris — Maasai Mara · Amboseli · Samburu</text>
+  <circle cx="1050" cy="120" r="70" fill="url(#gold)" opacity="0.9"/>
+  <text x="90" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="32" letter-spacing="10" fill="#cfa24a">VIRTUOUS AFRICA SAFARIS</text>
+  <text x="86" y="362" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="94" fill="#faf5ec">Wild Kenya,</text>
+  <text x="86" y="470" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="94" fill="url(#gold)">honestly guided.</text>
+  <text x="90" y="558" font-family="Arial, sans-serif" font-size="27" fill="#d8c4a8">Private, guide-led safaris — Maasai Mara · Amboseli · Samburu</text>
 </svg>

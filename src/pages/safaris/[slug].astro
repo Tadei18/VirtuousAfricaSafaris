@@ -29,23 +29,23 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
   <section class="relative isolate flex min-h-[78svh] flex-col justify-end overflow-hidden">
     <div class="absolute inset-0 -z-10">
       <img src={tour.heroImage} alt={tour.title} fetchpriority="high" class="size-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/55 to-[#0c0e12]/40"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#2a1509] via-[#2a1509]/55 to-[#2a1509]/40"></div>
     </div>
 
     <div class="mx-auto w-full max-w-[1400px] px-5 pb-14 pt-32 lg:px-10 lg:pb-16">
-      <a href="/safaris" class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)] transition-colors hover:text-[#ff6a1a]">
+      <a href="/safaris" class="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--color-fog)] transition-colors hover:text-[#cfa24a]">
         <ArrowLeft className="size-4" /> All safaris
       </a>
       <div class="mt-5 flex flex-wrap items-center gap-2">
-        <span class="rounded-full border border-[#ff6a1a]/40 bg-[#ff6a1a]/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#ffb056]">{tour.style}</span>
+        <span class="rounded-full border border-[#cfa24a]/40 bg-[#cfa24a]/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#e8cf94]">{tour.style}</span>
         {tour.departureNote && (
           <span class="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">{tour.departureNote}</span>
         )}
       </div>
       <h1 class="display-1 mt-4 max-w-4xl text-[color:var(--color-bone)]">{tour.title}</h1>
       <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold text-[color:var(--color-bone)]">
-        <span class="inline-flex items-center gap-2"><Clock className="size-4 text-[#ffb056]" /> {tour.durationDays} days</span>
-        <span class="inline-flex items-center gap-2"><Users className="size-4 text-[#ffb056]" /> Max {tour.groupSizeMax} guests</span>
+        <span class="inline-flex items-center gap-2"><Clock className="size-4 text-[#cfa24a]" /> {tour.durationDays} days</span>
+        <span class="inline-flex items-center gap-2"><Users className="size-4 text-[#cfa24a]" /> Max {tour.groupSizeMax} guests</span>
         <StarRating rating={tour.rating} count={tour.reviewCount} />
         <span class="inline-flex items-center gap-2 text-[color:var(--color-fog)]">
           From <span class="font-display text-lg font-extrabold text-[color:var(--color-bone)]">{formatUsd(tour.priceFromUsd)}</span> pp
@@ -55,41 +55,41 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
   </section>
 
   <!-- Body -->
-  <section class="bg-[#0c0e12] pb-28 lg:pb-16">
+  <section class="bg-[#faf5ec] pb-28 lg:pb-16">
     <div class="mx-auto grid max-w-[1400px] gap-12 px-5 py-16 lg:grid-cols-[1fr_22rem] lg:gap-16 lg:px-10">
       <div class="min-w-0">
         <!-- Overview -->
         <div data-reveal>
-          <h2 class="display-3 text-[color:var(--color-bone)]">The trip, in brief</h2>
-          <div class="mt-5 space-y-4 text-lg leading-relaxed text-[color:var(--color-fog)]">
+          <h2 class="display-3 text-[color:var(--color-charcoal)]">The trip, in brief</h2>
+          <div class="mt-5 space-y-4 text-lg leading-relaxed text-[color:var(--color-charcoal-soft)]">
             {tour.overview.map((p) => <p>{p}</p>)}
           </div>
         </div>
 
         <!-- Highlights -->
         <div class="mt-14" data-reveal>
-          <h3 class="font-display text-2xl font-bold text-[color:var(--color-bone)]">Highlights</h3>
+          <h3 class="font-display text-2xl font-bold text-[color:var(--color-charcoal)]">Highlights</h3>
           <div class="mt-6 grid gap-4 sm:grid-cols-2">
             {tour.highlights.map((h) => (
-              <div class="flex gap-4 rounded-2xl border border-[color:var(--color-line)] bg-[#12151b] p-5">
-                <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#ff6a1a]/12 text-[#ff6a1a]">
+              <div class="flex gap-4 rounded-2xl border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-5">
+                <span class="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#3f200f]/12 text-[#3f200f]">
                   <Icon name={h.icon} class="size-5" />
                 </span>
-                <p class="text-sm leading-relaxed text-[color:var(--color-bone)]/90">{h.text}</p>
+                <p class="text-sm leading-relaxed text-[color:var(--color-charcoal)]/90">{h.text}</p>
               </div>
             ))}
           </div>
         </div>
 
         <!-- Route -->
-        <div class="mt-14 grid gap-6 rounded-[1.75rem] border border-[color:var(--color-line)] bg-[#12151b] p-6 sm:grid-cols-[1fr_1.1fr] sm:items-center sm:gap-10 sm:p-8" data-reveal>
+        <div class="mt-14 grid gap-6 rounded-[1.75rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6 sm:grid-cols-[1fr_1.1fr] sm:items-center sm:gap-10 sm:p-8" data-reveal>
           <div>
-            <p class="eyebrow text-[#ffb056]"><MapPin className="size-4" /> The route</p>
-            <h3 class="mt-3 font-display text-2xl font-bold text-[color:var(--color-bone)]">Where this trip takes you</h3>
+            <p class="eyebrow text-[#96690f]"><MapPin className="size-4" /> The route</p>
+            <h3 class="mt-3 font-display text-2xl font-bold text-[color:var(--color-charcoal)]">Where this trip takes you</h3>
             <ol class="mt-5 space-y-2">
               {tour.routeLabel.map((label, i) => (
-                <li class="flex items-center gap-3 text-sm text-[color:var(--color-bone)]">
-                  <span class="inline-flex size-6 items-center justify-center rounded-full bg-[#ff6a1a]/15 text-[11px] font-bold text-[#ffb056]">{i + 1}</span>
+                <li class="flex items-center gap-3 text-sm text-[color:var(--color-charcoal)]">
+                  <span class="inline-flex size-6 items-center justify-center rounded-full bg-[#3f200f]/15 text-[11px] font-bold text-[#96690f]">{i + 1}</span>
                   {label}
                 </li>
               ))}
@@ -100,29 +100,29 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
 
         <!-- Itinerary -->
         <div class="mt-14" data-reveal>
-          <h3 class="font-display text-2xl font-bold text-[color:var(--color-bone)]">Day by day</h3>
+          <h3 class="font-display text-2xl font-bold text-[color:var(--color-charcoal)]">Day by day</h3>
           <div class="mt-6 space-y-3">
             {tour.itinerary.map((day) => (
-              <details class="group overflow-hidden rounded-2xl border border-[color:var(--color-line)] bg-[#12151b]" open={day.day === 1}>
+              <details class="group overflow-hidden rounded-2xl border border-[color:var(--color-line-ink)] bg-[#fffdf9]" open={day.day === 1}>
                 <summary class="flex cursor-pointer list-none items-center gap-5 p-5 [&::-webkit-details-marker]:hidden">
-                  <span class="font-display text-4xl font-extrabold leading-none text-[#ff6a1a]/30 transition-colors group-open:text-[#ff6a1a]">
+                  <span class="font-display text-4xl font-extrabold leading-none text-[#3f200f]/30 transition-colors group-open:text-[#3f200f]">
                     {String(day.day).padStart(2, "0")}
                   </span>
                   <div class="min-w-0 flex-1">
-                    <p class="text-xs font-semibold uppercase tracking-wider text-[color:var(--color-fog-2)]">Day {day.day} · {day.location}</p>
-                    <h4 class="font-display text-lg font-bold text-[color:var(--color-bone)]">{day.title}</h4>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-[color:var(--color-charcoal-soft)]">Day {day.day} · {day.location}</p>
+                    <h4 class="font-display text-lg font-bold text-[color:var(--color-charcoal)]">{day.title}</h4>
                   </div>
-                  <span class="hidden shrink-0 rounded-full border border-[color:var(--color-line-strong)] px-3 py-1 text-[11px] font-semibold text-[color:var(--color-fog)] sm:inline-block">
+                  <span class="hidden shrink-0 rounded-full border border-[color:var(--color-line-ink-strong)] px-3 py-1 text-[11px] font-semibold text-[color:var(--color-charcoal-soft)] sm:inline-block">
                     {day.meals.length ? day.meals.map((m) => mealLabel[m]).join(" · ") : "No meals"}
                   </span>
                 </summary>
-                <div class="border-t border-[color:var(--color-line)] p-5 pl-[4.75rem]">
-                  <div class="space-y-3 text-[15px] leading-relaxed text-[color:var(--color-fog)]">
+                <div class="border-t border-[color:var(--color-line-ink)] p-5 pl-[4.75rem]">
+                  <div class="space-y-3 text-[15px] leading-relaxed text-[color:var(--color-charcoal-soft)]">
                     {day.description.map((d) => <p>{d}</p>)}
                   </div>
-                  <div class="mt-4 flex flex-wrap gap-4 text-xs text-[color:var(--color-fog)]">
+                  <div class="mt-4 flex flex-wrap gap-4 text-xs text-[color:var(--color-charcoal-soft)]">
                     {day.lodge && (
-                      <span class="inline-flex items-center gap-1.5"><Calendar className="size-3.5 text-[#ffb056]" /> Stay: <span class="font-semibold text-[color:var(--color-bone)]">{day.lodge}</span></span>
+                      <span class="inline-flex items-center gap-1.5"><Calendar className="size-3.5 text-[#96690f]" /> Stay: <span class="font-semibold text-[color:var(--color-charcoal)]">{day.lodge}</span></span>
                     )}
                     <span class="inline-flex items-center gap-1.5 sm:hidden">Meals: {day.meals.length ? day.meals.map((m) => mealLabel[m]).join(", ") : "None"}</span>
                   </div>
@@ -135,20 +135,20 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
         <!-- Inclusions / Exclusions -->
         <div class="mt-14 grid gap-6 md:grid-cols-2" data-reveal>
           <div class="rounded-[1.5rem] border border-emerald-400/20 bg-emerald-500/[0.04] p-6">
-            <h3 class="font-display text-xl font-bold text-[color:var(--color-bone)]">What's included</h3>
+            <h3 class="font-display text-xl font-bold text-[color:var(--color-charcoal)]">What's included</h3>
             <ul class="mt-4 space-y-2.5">
               {tour.inclusions.map((item) => (
-                <li class="flex items-start gap-2.5 text-sm text-[color:var(--color-bone)]/90">
+                <li class="flex items-start gap-2.5 text-sm text-[color:var(--color-charcoal)]/90">
                   <Check className="mt-0.5 size-4 shrink-0 text-emerald-400" /> {item}
                 </li>
               ))}
             </ul>
           </div>
-          <div class="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-6">
-            <h3 class="font-display text-xl font-bold text-[color:var(--color-bone)]">Not included</h3>
+          <div class="rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6">
+            <h3 class="font-display text-xl font-bold text-[color:var(--color-charcoal)]">Not included</h3>
             <ul class="mt-4 space-y-2.5">
               {tour.exclusions.map((item) => (
-                <li class="flex items-start gap-2.5 text-sm text-[color:var(--color-fog)]">
+                <li class="flex items-start gap-2.5 text-sm text-[color:var(--color-charcoal-soft)]">
                   <X className="mt-0.5 size-4 shrink-0 text-red-400/70" /> {item}
                 </li>
               ))}
@@ -158,7 +158,7 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
 
         <!-- Gallery -->
         <div class="mt-14" data-reveal>
-          <h3 class="font-display text-2xl font-bold text-[color:var(--color-bone)]">Gallery</h3>
+          <h3 class="font-display text-2xl font-bold text-[color:var(--color-charcoal)]">Gallery</h3>
           <div class="mt-6">
             <Gallery client:visible images={tour.gallery} />
           </div>
@@ -166,7 +166,7 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
 
         <!-- FAQ -->
         <div class="mt-14" data-reveal>
-          <h3 class="font-display text-2xl font-bold text-[color:var(--color-bone)]">Good to know</h3>
+          <h3 class="font-display text-2xl font-bold text-[color:var(--color-charcoal)]">Good to know</h3>
           <div class="mt-6">
             <FaqAccordion faqs={tour.faqs} idPrefix="tour-faq" />
           </div>
@@ -183,8 +183,8 @@ const jsonLd = [touristTripJsonLd(tour), faqPageJsonLd(tour.faqs)];
 
     <!-- Related -->
     {related.length > 0 && (
-      <div class="mx-auto max-w-[1400px] border-t border-[color:var(--color-line)] px-5 py-16 lg:px-10">
-        <h2 class="display-3 text-[color:var(--color-bone)]">More ways to travel</h2>
+      <div class="mx-auto max-w-[1400px] border-t border-[color:var(--color-line-ink)] px-5 py-16 lg:px-10">
+        <h2 class="display-3 text-[color:var(--color-charcoal)]">More ways to travel</h2>
         <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((t) => <TourCard tour={t} />)}
         </div>

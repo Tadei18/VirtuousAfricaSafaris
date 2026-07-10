@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import logo from "@/assets/virtuous-africa-logo.png";
+
+interface Props {
+  /** Sizing/utility classes (height controls the scale). */
+  class?: string;
+  /** Knock out to cream/white for placement on dark backgrounds. */
+  light?: boolean;
+}
+const { class: cls = "h-9 w-auto", light = false } = Astro.props;
+---
+
+<Image
+  src={logo}
+  alt="Virtuous Africa Safaris"
+  loading="eager"
+  class:list={[cls, "shrink-0", light && "va-logo-light"]}
+/>

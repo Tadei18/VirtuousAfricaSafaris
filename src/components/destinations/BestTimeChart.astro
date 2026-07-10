@@ -8,7 +8,7 @@ const { scores } = Astro.props;
 const MONTHS: Month[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 ---
 
-<div class="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-6">
+<div class="rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6">
   <div class="flex items-end gap-1.5 sm:gap-2.5" style="height: 168px">
     {
       MONTHS.map((m) => {
@@ -21,21 +21,21 @@ const MONTHS: Month[] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
             <div
               class:list={[
                 "w-full rounded-t-md transition-all",
-                isPeak ? "bg-gradient-to-t from-[#ff6a1a] to-[#ffb056]" : good ? "bg-[#ff6a1a]/45" : "bg-[color:var(--color-fog-2)]/30",
+                isPeak ? "bg-gradient-to-t from-[#3f200f] to-[#96690f]" : good ? "bg-[#3f200f]/45" : "bg-[color:var(--color-charcoal-soft)]/30",
               ]}
               style={`height:${heightPct}%`}
               role="img"
               aria-label={`${m}: ${score} out of 5`}
             />
-            <span class="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-fog)]">{m}</span>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-[color:var(--color-charcoal-soft)]">{m}</span>
           </div>
         );
       })
     }
   </div>
-  <div class="mt-4 flex items-center justify-end gap-4 text-[11px] text-[color:var(--color-fog)]">
-    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-gradient-to-t from-[#ff6a1a] to-[#ffb056]"></span> Peak</span>
-    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[#ff6a1a]/45"></span> Good</span>
-    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[color:var(--color-fog-2)]/30"></span> Quiet season</span>
+  <div class="mt-4 flex items-center justify-end gap-4 text-[11px] text-[color:var(--color-charcoal-soft)]">
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-gradient-to-t from-[#3f200f] to-[#96690f]"></span> Peak</span>
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[#3f200f]/45"></span> Good</span>
+    <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-sm bg-[color:var(--color-charcoal-soft)]/30"></span> Quiet season</span>
   </div>
 </div>

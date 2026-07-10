@@ -3,16 +3,16 @@ import { destinations } from "@/data/destinations";
 import { ArrowRight } from "lucide-react";
 ---
 
-<section class="bg-[#0c0e12] py-20 lg:py-28">
+<section class="bg-[#faf5ec] py-20 lg:py-28">
   <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
     <div class="flex items-end justify-between gap-6" data-reveal>
       <div class="max-w-2xl">
-        <p class="eyebrow text-[#ffb056]">Where you'll go</p>
-        <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">Nine wild corners of Kenya.</h2>
+        <p class="eyebrow text-[#96690f]">Where you'll go</p>
+        <h2 class="display-2 mt-4 text-[color:var(--color-charcoal)]">Nine wild corners of Kenya.</h2>
       </div>
       <a
         href="/destinations"
-        class="group hidden shrink-0 items-center gap-2 rounded-full border border-[color:var(--color-line-strong)] px-5 py-3 text-sm font-bold text-[color:var(--color-bone)] transition-colors hover:border-[#ff6a1a] hover:text-[#ff6a1a] sm:inline-flex"
+        class="group hidden shrink-0 items-center gap-2 rounded-full border border-[color:var(--color-line-ink-strong)] px-5 py-3 text-sm font-bold text-[color:var(--color-charcoal)] transition-colors hover:border-[#3f200f] hover:text-[#3f200f] sm:inline-flex"
       >
         All destinations
         <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -26,7 +26,7 @@ import { ArrowRight } from "lucide-react";
       destinations.map((d, i) => (
         <a
           href={`/destinations/${d.slug}`}
-          class="group relative flex aspect-[3/4] w-[78vw] shrink-0 snap-start flex-col justify-end overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line)] p-6 sm:w-[20rem]"
+          class="group relative flex aspect-[3/4] w-[78vw] shrink-0 snap-start flex-col justify-end overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line-ink)] p-6 sm:w-[20rem]"
         >
           <img
             src={d.heroImage}
@@ -37,10 +37,10 @@ import { ArrowRight } from "lucide-react";
             decoding="async"
             class="absolute inset-0 size-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12] via-[#0c0e12]/35 to-transparent" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#2a1509] via-[#2a1509]/35 to-transparent" />
           <div class="relative">
             <span class="font-display text-2xl font-extrabold text-white">{d.name}</span>
-            <p class="mt-1 text-sm font-medium text-[#ffb056]">{d.oneLineDraw}</p>
+            <p class="mt-1 text-sm font-medium text-[#cfa24a]">{d.oneLineDraw}</p>
           </div>
         </a>
       ))
@@ -49,7 +49,7 @@ import { ArrowRight } from "lucide-react";
   </div>
 
   <div class="mx-auto max-w-[1400px] px-5 sm:hidden">
-    <a href="/destinations" class="inline-flex items-center gap-2 text-sm font-bold text-[#ff6a1a]">
+    <a href="/destinations" class="inline-flex items-center gap-2 text-sm font-bold text-[#3f200f]">
       All destinations <ArrowRight className="size-4" />
     </a>
   </div>

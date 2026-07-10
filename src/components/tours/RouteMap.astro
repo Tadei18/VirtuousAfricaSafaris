@@ -16,7 +16,7 @@ const path = stops
   .join(" ");
 ---
 
-<div class="rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-6">
+<div class="rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6">
   <svg
     viewBox="0 0 100 100"
     class="mx-auto w-full max-w-sm"
@@ -26,14 +26,14 @@ const path = stops
     <title id="route-map-title">Route map of the journey across Kenya</title>
     <defs>
       <linearGradient id="routeGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#ffb056" />
-        <stop offset="1" stop-color="#ff6a1a" />
+        <stop offset="0" stop-color="#96690f" />
+        <stop offset="1" stop-color="#3f200f" />
       </linearGradient>
     </defs>
     <path
       d={KENYA_OUTLINE}
-      fill="#1a1e26"
-      stroke="rgba(244,241,234,0.14)"
+      fill="#efe3d0"
+      stroke="rgba(63,32,15,0.2)"
       stroke-width="0.5"
     />
     <path
@@ -48,14 +48,14 @@ const path = stops
     {
       stops.map((s, i) => (
         <g>
-          <circle cx={s.x} cy={s.y} r="1.8" fill="#ff6a1a" stroke="#0c0e12" stroke-width="0.5" />
+          <circle cx={s.x} cy={s.y} r="1.8" fill="#3f200f" stroke="#faf5ec" stroke-width="0.5" />
           <text
             x={s.x + 2.6}
             y={s.y + 1}
             font-size="3.1"
             font-family="Manrope, sans-serif"
             font-weight="700"
-            fill="#f4f1ea"
+            fill="#2e1b10"
           >
             {s.label}
           </text>
@@ -63,12 +63,12 @@ const path = stops
       ))
     }
   </svg>
-  <p class="mt-4 text-center text-sm text-[color:var(--color-fog)]">
+  <p class="mt-4 text-center text-sm text-[color:var(--color-charcoal-soft)]">
     {
       stops.map((s, i) => (
         <span>
-          {i > 0 && <span class="text-[color:var(--color-fog-2)]"> → </span>}
-          <span class="font-semibold text-[color:var(--color-bone)]">{s.label}</span>
+          {i > 0 && <span class="text-[color:var(--color-charcoal-soft)]"> → </span>}
+          <span class="font-semibold text-[color:var(--color-charcoal)]">{s.label}</span>
         </span>
       ))
     }

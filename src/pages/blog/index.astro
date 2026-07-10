@@ -19,30 +19,30 @@ const fmt = (d: Date) =>
     intro="Timing, packing, conservation and the odd tall tale — practical dispatches from a team that spends its life in game vehicles. More landing soon."
   />
 
-  <section class="bg-[#0c0e12] py-16 lg:py-20">
+  <section class="bg-[#faf5ec] py-16 lg:py-20">
     <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {
           posts.map((post, i) => (
             <a
               href={`/blog/${post.id}`}
-              class="group flex flex-col overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#ff6a1a]/40"
+              class="group flex flex-col overflow-hidden rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#3f200f]/40"
               data-reveal
               style={`--reveal-delay:${(i % 3) * 80}ms`}
             >
               <div class="relative aspect-[16/10] overflow-hidden">
                 <img src={post.data.heroImage} alt={post.data.heroAlt} loading={i < 3 ? "eager" : "lazy"} decoding="async" class="size-full object-cover transition-transform duration-[900ms] group-hover:scale-110" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0c0e12]/70 to-transparent" />
-                <span class="absolute left-4 top-4 rounded-full border border-[#ff6a1a]/40 bg-[#0c0e12]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#ffb056] backdrop-blur">{post.data.category}</span>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#faf5ec]/70 to-transparent" />
+                <span class="absolute left-4 top-4 rounded-full border border-[#3f200f]/40 bg-[#faf5ec]/70 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#96690f] backdrop-blur">{post.data.category}</span>
               </div>
               <div class="flex flex-1 flex-col p-6">
-                <div class="flex items-center gap-3 text-xs text-[color:var(--color-fog-2)]">
+                <div class="flex items-center gap-3 text-xs text-[color:var(--color-charcoal-soft)]">
                   <span>{fmt(post.data.pubDate)}</span>
                   <span class="inline-flex items-center gap-1"><Clock className="size-3" /> {post.data.readMinutes} min</span>
                 </div>
-                <h2 class="mt-3 font-display text-xl font-bold leading-tight text-[color:var(--color-bone)] transition-colors group-hover:text-[#ff6a1a]">{post.data.title}</h2>
-                <p class="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-[color:var(--color-fog)]">{post.data.description}</p>
-                <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#ffb056]">Read <ArrowUpRight className="size-4" /></span>
+                <h2 class="mt-3 font-display text-xl font-bold leading-tight text-[color:var(--color-charcoal)] transition-colors group-hover:text-[#3f200f]">{post.data.title}</h2>
+                <p class="mt-2 line-clamp-3 flex-1 text-sm leading-relaxed text-[color:var(--color-charcoal-soft)]">{post.data.description}</p>
+                <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-[#96690f]">Read <ArrowUpRight className="size-4" /></span>
               </div>
             </a>
           ))

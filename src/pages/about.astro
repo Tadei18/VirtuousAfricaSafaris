@@ -26,13 +26,13 @@ const initials = (name: string) =>
   />
 
   <!-- Story -->
-  <section class="bg-[#0c0e12] py-16 lg:py-24">
+  <section class="bg-[#faf5ec] py-16 lg:py-24">
     <div class="mx-auto grid max-w-[1400px] gap-12 px-5 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-10">
       <div data-reveal>
-        <p class="eyebrow text-[#ffb056]">Our story</p>
-        <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">Built by guides, for travellers who want the real thing.</h2>
+        <p class="eyebrow text-[#96690f]">Our story</p>
+        <h2 class="display-2 mt-4 text-[color:var(--color-charcoal)]">Built by guides, for travellers who want the real thing.</h2>
       </div>
-      <div class="space-y-4 text-lg leading-relaxed text-[color:var(--color-fog)]" data-reveal style="--reveal-delay:100ms">
+      <div class="space-y-4 text-lg leading-relaxed text-[color:var(--color-charcoal-soft)]" data-reveal style="--reveal-delay:100ms">
         <p>We started the way most good safari companies do — a handful of guides who were tired of watching visitors get moved through Kenya on a conveyor belt of minibuses and rushed sightings.</p>
         <p>So we built the opposite. Private vehicles. Local specialists who stay with you. Routes sequenced so you spend your days in the parks, not on the roads. And a deliberate bias toward the conservancies, where vehicle numbers are limited and a real share of your money reaches the communities protecting the land.</p>
         <p>We're not the biggest operator in Nairobi, and we don't want to be. We'd rather run fewer trips and get every one of them right.</p>
@@ -44,13 +44,13 @@ const initials = (name: string) =>
   <section class="relative overflow-hidden bg-[color:var(--color-paper)] text-[color:var(--color-charcoal)]">
     <div class="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-24">
       <div class="max-w-2xl" data-reveal>
-        <p class="eyebrow text-[#d24e08]">What we stand for</p>
+        <p class="eyebrow text-[#96690f]">What we stand for</p>
         <h2 class="display-2 mt-4">Four things we won't compromise on.</h2>
       </div>
       <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {values.map((v, i) => (
           <div class="rounded-2xl border border-[color:var(--color-line-ink)] bg-white/60 p-6" data-reveal style={`--reveal-delay:${(i % 4) * 70}ms`}>
-            <span class="inline-flex size-12 items-center justify-center rounded-xl bg-[#ff6a1a]/12 text-[#d24e08]">
+            <span class="inline-flex size-12 items-center justify-center rounded-xl bg-[#3f200f]/12 text-[#96690f]">
               <v.icon className="size-6" />
             </span>
             <h3 class="mt-5 font-display text-lg font-bold">{v.title}</h3>
@@ -62,27 +62,27 @@ const initials = (name: string) =>
   </section>
 
   <!-- Guides -->
-  <section class="bg-[#0c0e12] py-16 lg:py-24">
+  <section class="bg-[#faf5ec] py-16 lg:py-24">
     <div class="mx-auto max-w-[1400px] px-5 lg:px-10">
       <div class="max-w-2xl" data-reveal>
-        <p class="eyebrow text-[#ffb056]">The people</p>
-        <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">Guides who read the bush.</h2>
-        <p class="mt-4 text-lg text-[color:var(--color-fog)]">The single biggest factor in a great safari is who's driving. Meet a few of ours.</p>
+        <p class="eyebrow text-[#96690f]">The people</p>
+        <h2 class="display-2 mt-4 text-[color:var(--color-charcoal)]">Guides who read the bush.</h2>
+        <p class="mt-4 text-lg text-[color:var(--color-charcoal-soft)]">The single biggest factor in a great safari is who's driving. Meet a few of ours.</p>
       </div>
       <div class="mt-12 grid gap-6 sm:grid-cols-2">
         {guides.map((g, i) => (
-          <div class="flex gap-5 rounded-[1.5rem] border border-[color:var(--color-line)] bg-[#12151b] p-6 transition-colors hover:border-[#ff6a1a]/30" data-reveal style={`--reveal-delay:${(i % 2) * 90}ms`}>
-            <div class="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ff6a1a] to-[#d24e08] font-display text-xl font-extrabold text-white" aria-hidden="true">
+          <div class="flex gap-5 rounded-[1.5rem] border border-[color:var(--color-line-ink)] bg-[#fffdf9] p-6 transition-colors hover:border-[#3f200f]/30" data-reveal style={`--reveal-delay:${(i % 2) * 90}ms`}>
+            <div class="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3f200f] to-[#96690f] font-display text-xl font-extrabold text-white" aria-hidden="true">
               {initials(g.name)}
             </div>
             <div class="min-w-0">
-              <h3 class="font-display text-lg font-bold text-[color:var(--color-bone)]">{g.name}</h3>
-              <p class="text-sm font-semibold text-[#ffb056]">{g.specialty}</p>
-              <div class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[color:var(--color-fog)]">
-                <span class="inline-flex items-center gap-1.5"><Award className="size-3.5 text-[#ff6a1a]" /> {g.yearsInField} yrs in the field</span>
-                <span class="inline-flex items-center gap-1.5"><Languages className="size-3.5 text-[#ff6a1a]" /> {g.languages.join(", ")}</span>
+              <h3 class="font-display text-lg font-bold text-[color:var(--color-charcoal)]">{g.name}</h3>
+              <p class="text-sm font-semibold text-[#96690f]">{g.specialty}</p>
+              <div class="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-[color:var(--color-charcoal-soft)]">
+                <span class="inline-flex items-center gap-1.5"><Award className="size-3.5 text-[#3f200f]" /> {g.yearsInField} yrs in the field</span>
+                <span class="inline-flex items-center gap-1.5"><Languages className="size-3.5 text-[#3f200f]" /> {g.languages.join(", ")}</span>
               </div>
-              <p class="mt-3 text-sm leading-relaxed text-[color:var(--color-fog)]">{g.bio}</p>
+              <p class="mt-3 text-sm leading-relaxed text-[color:var(--color-charcoal-soft)]">{g.bio}</p>
             </div>
           </div>
         ))}
@@ -93,16 +93,16 @@ const initials = (name: string) =>
   <!-- Conservation ethos -->
   <section class="relative overflow-hidden">
     <img src="/images/destinations/ol-pejeta.webp" alt="Rhino grazing on the Ol Pejeta conservancy at dusk" loading="lazy" decoding="async" class="absolute inset-0 size-full object-cover" />
-    <div class="absolute inset-0 bg-[#0c0e12]/80"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0c0e12] via-[#0c0e12]/70 to-transparent"></div>
+    <div class="absolute inset-0 bg-[#faf5ec]/80"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#faf5ec] via-[#faf5ec]/70 to-transparent"></div>
     <div class="relative mx-auto max-w-[1400px] px-5 py-20 lg:px-10 lg:py-28">
       <div class="max-w-2xl" data-reveal>
-        <p class="eyebrow text-[#ffb056]">Conservation ethos</p>
-        <h2 class="display-2 mt-4 text-[color:var(--color-bone)]">The wild pays for itself, or it disappears.</h2>
-        <p class="mt-5 max-w-xl text-lg leading-relaxed text-[color:var(--color-fog)]">
+        <p class="eyebrow text-[#96690f]">Conservation ethos</p>
+        <h2 class="display-2 mt-4 text-[color:var(--color-charcoal)]">The wild pays for itself, or it disappears.</h2>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-[color:var(--color-charcoal-soft)]">
           Kenya's wildlife lives largely outside fenced parks, on land people could otherwise farm. Conservancies flip that maths — tourism makes a living lion worth more than a dead one. We channel trips and a share of every booking into that model, and we'll happily show you exactly where it goes.
         </p>
-        <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full bg-[#ff6a1a] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#ff8a3d]">
+        <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full bg-[#3f200f] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#5c3b26]">
           Plan a conservancy safari
         </a>
       </div>

@@ -38,7 +38,7 @@ export default function NewsletterForm() {
 
   if (done) {
     return (
-      <p className="inline-flex items-center gap-2 rounded-full bg-[#ff6a1a]/15 px-4 py-3 text-sm font-semibold text-[#ffb056]">
+      <p className="inline-flex items-center gap-2 rounded-full bg-[#cfa24a]/15 px-4 py-3 text-sm font-semibold text-[#e8cf94]">
         <Check className="size-4" /> Thanks — check your inbox to confirm.
       </p>
     );
@@ -58,13 +58,13 @@ export default function NewsletterForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@email.com"
             aria-invalid={!!error}
-            className="w-full rounded-full border border-[color:var(--color-line-strong)] bg-[#0c0e12] px-5 py-3.5 text-sm text-[color:var(--color-bone)] placeholder:text-[color:var(--color-fog-2)] focus:border-[#ff6a1a] focus:outline-none"
+            className="w-full rounded-full border border-[color:var(--color-line-strong)] bg-white/5 px-5 py-3.5 text-sm text-[color:var(--color-bone)] placeholder:text-[color:var(--color-fog-2)] focus:border-[#cfa24a] focus:outline-none"
           />
         </div>
         <button
           type="submit"
           disabled={pending}
-          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#ff6a1a] px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#ff8a3d] disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#cfa24a] px-6 py-3.5 text-sm font-bold text-[#2a1509] transition-all hover:bg-[#e8cf94] disabled:opacity-60"
         >
           {pending ? "Signing up…" : "Subscribe"}
           <ArrowRight className="size-4" />
