@@ -6,11 +6,17 @@ import MultiStepInquiry from "@/components/react/MultiStepInquiry.tsx";
 import { contactSeo } from "@/data/seo";
 import { faqPageJsonLd } from "@/lib/jsonld";
 import { generalFaqs } from "@/data/faqs";
-import { contact, whatsappUrl, siteTagline } from "@/lib/constants";
+import { contact, phones, whatsappUrl, siteTagline } from "@/lib/constants";
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
-const details = [
-  { icon: Phone, label: "Call us", value: contact.phoneDisplay, href: `tel:${contact.phoneTel}` },
+const details: Array<{
+  icon: typeof Phone;
+  label: string;
+  value?: string;
+  href?: string;
+  phones?: typeof phones;
+}> = [
+  { icon: Phone, label: "Call or WhatsApp", phones },
   { icon: Mail, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
   { icon: MapPin, label: "Office", value: contact.address },
   { icon: Clock, label: "Hours", value: `${contact.hours} · ${contact.timezone}` },
@@ -42,7 +48,13 @@ const details = [
                 </span>
                 <div>
                   <p class="text-xs font-semibold uppercase tracking-wider text-[color:var(--color-charcoal-soft)]">{d.label}</p>
-                  {d.href ? (
+                  {d.phones ? (
+                    <div class="flex flex-col gap-0.5">
+                      {d.phones.map((p) => (
+                        <a href={`tel:${p.tel}`} class="text-sm font-medium text-[color:var(--color-charcoal)] transition-colors hover:text-[#3f200f]">{p.display}</a>
+                      ))}
+                    </div>
+                  ) : d.href ? (
                     <a href={d.href} class="text-sm font-medium text-[color:var(--color-charcoal)] transition-colors hover:text-[#3f200f]">{d.value}</a>
                   ) : (
                     <p class="text-sm font-medium text-[color:var(--color-charcoal)]">{d.value}</p>
@@ -56,7 +68,7 @@ const details = [
             <MessageCircle className="size-4" /> Chat on WhatsApp
           </a>
           <p class="mt-3 text-center text-[11px] text-[color:var(--color-charcoal-soft)]">
-            Contact details are placeholders — client to confirm before launch.
+            Office address to be confirmed before launch.
           </p>
         </div>
       </aside>

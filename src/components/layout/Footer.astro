@@ -6,6 +6,7 @@ import {
   siteTagline,
   navLinks,
   contact,
+  phones,
   social,
   trustBadges,
   whatsappUrl,
@@ -97,7 +98,11 @@ const destinationLinks = [
         <ul class="mt-4 space-y-3 text-[color:var(--color-fog)]">
           <li class="flex items-start gap-2.5">
             <Phone className="mt-0.5 size-4 shrink-0 text-[#cfa24a]" />
-            <a href={`tel:${contact.phoneTel}`} class="transition-colors hover:text-[color:var(--color-bone)]">{contact.phoneDisplay}</a>
+            <span class="flex flex-col gap-1">
+              {phones.map((p) => (
+                <a href={`tel:${p.tel}`} class="transition-colors hover:text-[color:var(--color-bone)]">{p.display}</a>
+              ))}
+            </span>
           </li>
           <li class="flex items-start gap-2.5">
             <Mail className="mt-0.5 size-4 shrink-0 text-[#cfa24a]" />

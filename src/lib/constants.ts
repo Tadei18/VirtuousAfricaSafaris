@@ -1,10 +1,9 @@
 // ===========================================================================
 // Centralised site-wide constants.
 //
-// ⚠️  ALL CONTACT DETAILS, SOCIAL LINKS AND ADDRESSES BELOW ARE PLACEHOLDERS.
-//     They are NOT real Virtuous Africa Safaris contact points.
-//     TODO: client to confirm — replace every value marked `client to confirm`
-//     before launch, and wire the phone/email/WhatsApp to live channels.
+// Phone numbers, email and WhatsApp are the client's REAL contact details.
+// Social links and the office address are still placeholders (TODO: client to
+// confirm).
 // ===========================================================================
 
 export const siteName = "Virtuous Africa Safaris";
@@ -17,14 +16,26 @@ export const siteDescription =
 export const siteUrl =
   import.meta.env.SITE_URL ?? "https://virtuousafricasafaris.com";
 
-// Contact details — PLACEHOLDERS. // TODO: client to confirm
+// All contactable numbers, in priority order (first = primary).
+export const phones = [
+  { display: "+254 702 677 359", tel: "+254702677359" },
+  { display: "+254 715 775 795", tel: "+254715775795" },
+  { display: "+254 724 799 999", tel: "+254724799999" },
+  { display: "+254 700 414 141", tel: "+254700414141" },
+] as const;
+
+// Contact details. Phones/email/WhatsApp are real; address is a placeholder.
 export const contact = {
-  phoneDisplay: "+254 700 000 000", // TODO: client to confirm
-  phoneTel: "+254700000000", // TODO: client to confirm
-  phoneDisplay2: "+254 711 111 111", // TODO: client to confirm
-  phoneTel2: "+254711111111", // TODO: client to confirm
-  whatsappNumber: "254700000000", // TODO: client to confirm
-  email: "hello@virtuousafricasafaris.com", // TODO: client to confirm
+  // Primary number (WhatsApp-enabled) — aliases into the phones list above.
+  phoneDisplay: phones[0].display,
+  phoneTel: phones[0].tel,
+  phoneDisplay2: phones[1].display,
+  phoneTel2: phones[1].tel,
+  // WhatsApp uses the primary number, no leading "+".
+  whatsappNumber: "254702677359",
+  // TODO: confirm whether email should be @virtuousafricasafaris.com
+  // (the site domain and this email domain differ — flag for the client to confirm).
+  email: "deals@virtuousexplorers.com",
   address:
     "TODO: client to confirm — street, building, floor, Nairobi, Kenya",
   hours: "Mon–Sat, 8am–6pm EAT",
@@ -40,7 +51,7 @@ export const social = {
 };
 
 export const whatsappPresetText = encodeURIComponent(
-  "Hi Virtuous Africa, I'd like to plan a Kenya safari."
+  "Hi Virtuous Africa Safaris, I'd like to plan a safari."
 );
 
 export const whatsappUrl = `https://wa.me/${contact.whatsappNumber}?text=${whatsappPresetText}`;

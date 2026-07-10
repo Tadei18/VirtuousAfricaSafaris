@@ -111,10 +111,16 @@ h4,
   color: #fff;
 }
 
-h1,
-h2,
-h3 {
-  color: var(--color-primary);
+/* Default heading colour = brand brown, but placed in @layer base so any
+   Tailwind text-colour utility (e.g. on dark/photo sections) overrides it.
+   Without the layer this unlayered rule would beat the utilities and force
+   every heading brown — invisible over dark imagery. */
+@layer base {
+  h1,
+  h2,
+  h3 {
+    color: var(--color-primary);
+  }
 }
 
 /* --- Fluid display type helpers --- */
